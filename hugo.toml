@@ -9,5 +9,44 @@ theme = 'mana'
   footerText = "Built with Hugo and Mana theme"  # Optional
   
   # Hero section title (optional - defaults to site.Title)
-  heroTitleLine1 = "My Portfolio"  # First line of hero title
-  heroTitleLine2 = "My name's Toby!"    # Second line of hero title (optional)
+  heroTitleLine1 = "IM TOBY! AND"  # First line of hero title
+  heroTitleLine2 = "THIS IS MY PORTFOLIO"    # Second line of hero title (optional)
+
+# Avatar Configuration
+[params.avatar]
+  # General avatar (used as fallback if page-specific avatar not set)
+  # If you have a hosted image you want to use as-is. The template will attempt to use this if set.
+  # url = "https://example.com/avatar.jpg"
+  
+  # If you have an image you want to provide as an asset and run through Hugo's pipes to resize based on use.
+  # This will only be used if "url" is *not* set.
+  # This path is relative to the "assets" folder.
+  assetPath = "images/obli_pb.png"
+
+  # Enable automatic resizing of avatar images (default: true)
+  # Set to false to use original image size and (May help preserve quality)
+  enableResize = true
+
+[params.social]
+  github = "https://github.com/Obliwobbi"
+  linkedin = "https://www.linkedin.com/in/tahartzberg"
+
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+
+[[menus.main]]
+  name = 'Posts'
+  pageRef = '/posts'
+  weight = 20
+
+[[menus.main]]
+  name = 'Tags'
+  pageRef = '/tags'
+  weight = 30
+
+[[menus.main]]
+  name = 'About'
+  url = '/about/'
+  weight = 40
