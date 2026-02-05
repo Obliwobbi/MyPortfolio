@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Show&#39;n&#39;tell on Tobys Portfolio</title>
+    <link>http://localhost:1313/tags/showntell/</link>
+    <description>Recent content in Show&#39;n&#39;tell on Tobys Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/showntell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Post</title>
+      <link>http://localhost:1313/posts/my-first-post/</link>
+      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/my-first-post/</guid>
+      <description>&lt;h1 id=&#34;hi-this-is-my-first-blog-post-on-my-portfolio-site&#34;&gt;Hi! This is my first blog post on my portfolio site!&lt;/h1&gt;&#xA;&lt;p&gt;I thought I would tell a little bit about my short journey on how I set up this page, what it is for and then a little bit about my project!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

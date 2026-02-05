@@ -17,7 +17,7 @@
     document.documentElement.setAttribute("data-theme", theme);
   })();
 </script>
-<title>404 Page not found | Tobys Portfolio</title>
+<title>Posts | Tobys Portfolio</title>
 <meta
   name="description"
   content="
@@ -30,18 +30,18 @@
 
 
 
-<link rel="canonical" href="http://localhost:1313/404.html">
+<link rel="canonical" href="http://localhost:1313/posts/">
 
 <meta name="robots" content="index, follow">
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="404 Page not found | Tobys Portfolio">
+<meta property="og:title" content="Posts | Tobys Portfolio">
 <meta property="og:description" content="">
-<meta property="og:url" content="http://localhost:1313/404.html">
+<meta property="og:url" content="http://localhost:1313/posts/">
 <meta property="og:site_name" content="Tobys Portfolio">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="404 Page not found | Tobys Portfolio">
+<meta name="twitter:title" content="Posts | Tobys Portfolio">
 <meta name="twitter:description" content="">
 
 
@@ -146,6 +146,8 @@
 <link rel="manifest" href="/favicon/logo-transparent/site.webmanifest">
 
 
+  <link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/posts/index.xml">
+
 
 
   
@@ -196,7 +198,7 @@
     <li class="menu-item">
       <a
         href="/posts/"
-        class="menu-link ">
+        class="menu-link active">
         Posts
       </a>
     </li>
@@ -280,7 +282,7 @@
     <li class="menu-item">
       <a
         href="/posts/"
-        class="menu-link ">
+        class="menu-link active">
         Posts
       </a>
     </li>
@@ -342,33 +344,380 @@
     <main id="main-content" class="flex-1" role="main">
       
   
-  <section class="hero-section">
-    <div class="hero-container">
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1 class="hero-title">
-            <span class="hero-title-line2">404</span>
-            <span class="hero-title-line1">This Page Does Not Exist</span>
-          </h1>
-          <p class="hero-subtitle">
-            &gt;
+  
+  
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+  
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+  
+  
+  
+  
+    
+    
+  
+    
+    
+  
+  
+
+
+  <div class="list-container">
+    <header class="list-header">
+      <h1 class="list-title">
+        <span class="list-title-line2">POSTS</span>
+      </h1>
+      
+      <div class="list-count">
+  <span id="filtered-count">2</span>
+  posts
+  
+</div>
+
+
+    </header>
+
+    
+    <div class="filter-accordion">
+      <button
+        class="filter-toggle-btn"
+        id="filter-toggle-btn"
+        aria-expanded="false"
+        aria-label="Toggle filters"
+        aria-controls="posts-filter-content">
+        <span class="filter-toggle-text">Filters</span>
+        <svg
+          class="filter-toggle-icon"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="posts-filter" id="posts-filter-content">
+        <div class="filter-group filter-group-tags">
+          <label class="filter-label" for="tag-search-input">Tags</label>
+          <div class="tag-search-container">
+            <input
+              type="text"
+              id="tag-search-input"
+              class="tag-search-input"
+              placeholder="Search for tags..."
+              aria-label="Search for tags">
+            <div
+              id="tag-search-results"
+              class="tag-search-results"
+              role="listbox"
+              aria-label="Tag search results"></div>
+          </div>
+          <div class="filter-tags" id="selected-tags-container">
             
-              Sorry, the page you are looking for could not be found.
+          </div>
+          <div id="all-tags-data" style="display: none;">
             
-          </p>
-          <div class="hero-social" style="margin-top: var(--spacing-lg);">
-            <a href="/" class="post-tag"> Return to the home page </a>
+              <span data-tag="database">database</span>
+            
+              <span data-tag="how-to">how-to</span>
+            
+              <span data-tag="hugo">hugo</span>
+            
+              <span data-tag="java">java</span>
+            
+              <span data-tag="JPQL">JPQL</span>
+            
+              <span data-tag="mana">mana</span>
+            
+              <span data-tag="ORM">ORM</span>
+            
+              <span data-tag="show&#39;n&#39;tell">show&#39;n&#39;tell</span>
+            
           </div>
         </div>
-        <div class="hero-image">
-          <img
-            src="/favicon/logo-transparent/android-chrome-512x512.png"
-            alt="Tobys Portfolio"
-            class="hero-logo">
+
+        <div class="filter-group">
+          <label for="filter-year-month" class="filter-label">Year & Month</label>
+          <select
+            id="filter-year-month"
+            class="filter-select"
+            aria-label="Filter by year and month">
+            <option value="">All Dates</option>
+            
+              <option value="2026 February">2026 February</option>
+            
+          </select>
         </div>
+
+        <button id="clear-filters" class="filter-clear-btn" aria-label="Clear all filters">
+          Clear Filters
+        </button>
       </div>
     </div>
-  </section>
+
+    <div class="posts-list" id="posts-container">
+      
+        
+        
+          
+        
+        
+
+
+
+
+
+<article
+  class="post-card"
+  data-post-url="/posts/the-beginning/"
+  data-year-month="2026 February"
+  data-tags="java,ORM,JPQL,database">
+  
+
+
+
+
+
+
+
+  <div class="post-content">
+    <h3 class="post-title">
+      <a href="/posts/the-beginning/" onclick="event.stopPropagation();">The Beginning of My Project: Member Systems</a>
+    </h3>
+
+    
+      <p class="post-description"><h1 id="portfolio-project">Portfolio Project</h1>
+<h2 id="member-system">Member System</h2></p>
+    
+
+    <div class="post-meta-inline">
+  <time datetime="2026-02-05T16:48:43&#43;01:00" class="post-date">
+    <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+    </svg>
+    February 5, 2026
+  </time>
+
+  
+    <span class="meta-separator">•</span>
+    <span class="post-word-count">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+      </svg>
+      4 words
+    </span>
+  
+
+  
+    <span class="meta-separator">•</span>
+    <span class="post-reading-time">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      1 min
+    </span>
+  
+</div>
+
+
+    
+
+  <div class="post-tags">
+    
+      
+        <a
+          href="/tags/java"
+          class="post-tag"
+          onclick="event.stopPropagation();"
+          >java</a
+        >
+      
+        <a
+          href="/tags/orm"
+          class="post-tag"
+          onclick="event.stopPropagation();"
+          >ORM</a
+        >
+      
+        <a
+          href="/tags/jpql"
+          class="post-tag"
+          onclick="event.stopPropagation();"
+          >JPQL</a
+        >
+      
+    
+  </div>
+
+
+  </div>
+</article>
+
+      
+        
+        
+          
+        
+        
+
+
+
+
+
+<article
+  class="post-card"
+  data-post-url="/posts/my-first-post/"
+  data-year-month="2026 February"
+  data-tags="hugo,mana,how-to,show&#39;n&#39;tell">
+  
+
+
+
+
+
+
+
+  <div class="post-content">
+    <h3 class="post-title">
+      <a href="/posts/my-first-post/" onclick="event.stopPropagation();">My First Post</a>
+    </h3>
+
+    
+      <p class="post-description"><h1 id="hi-this-is-my-first-blog-post-on-my-portfolio-site">Hi! This is my first blog post on my portfolio site!</h1>
+<p>I thought I would tell a little bit about my short journey on how I set up this page, what it is …</p></p>
+    
+
+    <div class="post-meta-inline">
+  <time datetime="2026-02-05T00:00:00Z" class="post-date">
+    <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+    </svg>
+    February 5, 2026
+  </time>
+
+  
+    <span class="meta-separator">•</span>
+    <span class="post-word-count">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+      </svg>
+      42 words
+    </span>
+  
+
+  
+    <span class="meta-separator">•</span>
+    <span class="post-reading-time">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      1 min
+    </span>
+  
+</div>
+
+
+    
+
+  <div class="post-tags">
+    
+      
+        <a
+          href="/tags/hugo"
+          class="post-tag"
+          onclick="event.stopPropagation();"
+          >hugo</a
+        >
+      
+        <a
+          href="/tags/mana"
+          class="post-tag"
+          onclick="event.stopPropagation();"
+          >mana</a
+        >
+      
+        <a
+          href="/tags/how-to"
+          class="post-tag"
+          onclick="event.stopPropagation();"
+          >how-to</a
+        >
+      
+    
+  </div>
+
+
+  </div>
+</article>
+
+      
+    </div>
+
+    
+    
+  
+  
+  
+  
+  
+  </nav>
+
+
+
+
+    
+    <div class="tag-nav-links">
+  <a href="/" class="tag-nav-link">Back to Home</a>
+</div>
+
+  </div>
 
     </main>
 
