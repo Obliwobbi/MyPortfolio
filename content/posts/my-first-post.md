@@ -30,7 +30,7 @@ And finally: **motivation!** <br>
 Knowing that I'll write a short post about each milestone makes me want to keep things moving and finish features properly instead of half-parking them in my head and moving on to the next step!
 
 ### How did I create this site?
-This site is built using **Hugo**, a static site-generator, together with the **Mana** theme. I wanted something that was both *fast*, *simple*, *easy to host* and *deploy automatically*.<br>
+This site is built using **[Hugo](https://gohugo.io/)**, a static site-generator, together with the **[Mana](https://github.com/Livour/hugo-mana-theme)** theme. I wanted something that was both *fast*, *simple*, *easy to host* and *deploy automatically*.<br>
 Hugo turned out to be a really good fit for that. Content is written in plain Markdown files, which means I can focus on writing instead of fighting a CMS or a heavy frontend framework.
 
 The Mana theme gave me a clean and minimal starting point with support for:
