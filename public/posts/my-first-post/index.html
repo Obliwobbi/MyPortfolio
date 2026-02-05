@@ -424,7 +424,7 @@
             stroke-width="2"
             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
         </svg>
-        1029 words
+        1036 words
       </span>
     
 
@@ -494,9 +494,7 @@ That means every time i push a new commit to GitHub, for example when I add a ne
 <p>This setup also fits really well with how I already work on projects: <em>Git</em>, <em>commits</em>, <em>small changes</em>, <em>repeat</em>.</p>
 <h4 id="the-steps-i-went-through-with-commands">The steps I went through (with commands)</h4>
 <p>To make the setup as smooth as possible, I followed a fairly simple workflow and relied mostly on the terminal and Visual Studio Code.</p>
-<ol>
-<li>Installing Hugo</li>
-</ol>
+<p><strong>1. Installing Hugo</strong></p>
 <p>I worked on both macOS and Windows, so I installed Hugo slightly differently on each system.</p>
 <p>On <strong>macOS</strong>, I used Homebrew:</p>
 
@@ -576,9 +574,7 @@ That means every time i push a new commit to GitHub, for example when I add a ne
   <p>hugo version</p>
 
 </blockquote>
-<ol start="2">
-<li>Creating a new Hugo project</li>
-</ol>
+<p><strong>2. Creating a new Hugo project</strong></p>
 <p>Once Hugo was installed, I created a new site using Hugo&rsquo;s built-in command, making sure I was in the correct directory:</p>
 
 
@@ -595,9 +591,7 @@ That means every time i push a new commit to GitHub, for example when I add a ne
 <p>This generated the basic folder structure needed for the site.</p>
 <p>I then opened the project in <strong>Visual Studio Code</strong>, this was just my preffered code editor, you can use any you are familiar with!</p>
 <p>From here on, most of the work was done directly inside VS code!</p>
-<ol start="3">
-<li>Adding the Mana theme as a Git submodule</li>
-</ol>
+<p><strong>3. Adding the Mana theme as a Git submodule</strong></p>
 <p>Instead of copying the them files directly into the project, I added the Mana theme as a <strong>Git submodule</strong> as the Mana documentation recommends! This keeps the theme separate from my own content and makes updates easier later on.</p>
 <p>From the project root in terminal:</p>
 
@@ -626,9 +620,7 @@ That means every time i push a new commit to GitHub, for example when I add a ne
 
 </blockquote>
 <p>to make sure the theme files were actually pulled in.. something I learned the hard way..</p>
-<ol start="4">
-<li>Configuring Hugo</li>
-</ol>
+<p><strong>4. Configuring Hugo</strong></p>
 <p>With the theme in place, I updated the Hugo configuration file to set things like:</p>
 <ul>
 <li>Site title</li>
@@ -639,9 +631,7 @@ That means every time i push a new commit to GitHub, for example when I add a ne
 <li>Base URL for deployment
 This tells Hugo how to structure and render the site.</li>
 </ul>
-<ol start="5">
-<li>Creating pages and blog posts</li>
-</ol>
+<p><strong>5. Creating pages and blog posts</strong></p>
 <p>Pages and posts are created using Hugo&rsquo;s built-in commands.</p>
 <p>For example, creating an About page:</p>
 
@@ -670,9 +660,7 @@ This tells Hugo how to structure and render the site.</li>
 
 </blockquote>
 <p>All content is written in <strong>Markdown</strong>, which makes it quick and free of distractions to write and edit.</p>
-<ol start="6">
-<li>Running the site locally</li>
-</ol>
+<p><strong>6. Running the site locally</strong></p>
 <p>To preview the site while working on it, I ran:</p>
 
 
@@ -687,9 +675,7 @@ This tells Hugo how to structure and render the site.</li>
 
 </blockquote>
 <p>This starts a local development server and includes draft posts so I can see everything as I work.</p>
-<ol start="7">
-<li>Version control and deployment</li>
-</ol>
+<p><strong>7. Version control and deployment</strong></p>
 <p>Once everything was set up, I initalized a Git repository, pushed it to Github, and configured GitHub Pages with GitHub Actions. This means the site automatically builds and deploys whenever I push changes, including new blog posts.<br>
 This was done using the official Hugo documentation, found under <em>Docs -&gt; Host and Deploy -&gt; Host on GitHub Pages</em> .. or <a href="https://gohugo.io/host-and-deploy/host-on-github-pages/">click here</a> for direct link.</p>
 <p>After the site was deployed using GitHub Pages, I connected a custom domain using <strong>Cloudflare DNS</strong>, so the site is avaiable under my own domain. This can take some time, before the DNS updates through the internet, so patience was needed!</p>
