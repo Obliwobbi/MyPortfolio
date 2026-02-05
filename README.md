@@ -1,4 +1,5 @@
-##Setup
+## Setup
+
 This project uses submodules!
 
 After cloning repo, remember to run:
