@@ -1,4 +1,4 @@
-baseURL = 'https://obli.dk/'
+baseURL = 'https://portfolio.obli.dk/'
 languageCode = 'en-us'
 title = 'Tobys Portfolio'
 theme = 'mana'
@@ -99,3 +99,7 @@ theme = 'mana'
 
 [taxonomies]
   tag = "tags"
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
