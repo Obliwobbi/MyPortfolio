@@ -7,7 +7,7 @@ title = 'About me'
 ## Hey! I’m Toby Alexander West Mietke Hartzberg
 I’m currently studying to become an AP in Computer Science. I’m in my 3rd term, where most of my time is spent building projects, learning new technologies, and occasionally questioning why something that worked five minutes ago suddenly doesn’t anymore.
 
-This site is my personal blog and a place where I document my journey, especially my weekly progress on my term projects. but also side projects, experiments, and random technical deep dives when something interesting (or frustrating) comes up.
+This site is my personal blog and a place where I document my journey, especially my weekly progress on my term projects, but also side projects, experiments, and random technical deep dives when something interesting (or frustrating) comes up.
 
 I’m especially interested in backend development, APIs, and figuring out how things work under the hood. I like structured problems, clean solutions, and setups that make sense without being over-engineered.
 
