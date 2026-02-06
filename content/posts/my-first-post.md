@@ -138,3 +138,18 @@ Once everything was set up, I initalized a Git repository, pushed it to Github, 
 This was done using the official Hugo documentation, found under _Docs -> Host and Deploy -> Host on GitHub Pages_ .. or [click here](https://gohugo.io/host-and-deploy/host-on-github-pages/) for direct link.
 
 After the site was deployed using GitHub Pages, I connected a custom domain using **Cloudflare DNS**, so the site is avaiable under my own domain. This can take some time, before the DNS updates through the internet, so patience was needed!
+
+Just make a **DNS record** where the *type* is **CNAME** where ever you have your DNS, I'm using Cloudflare, here, make sure you uncheck the orange proxy button so its **DNS Only**
+
+*Name* should be what ever you want infront of your domain, here i used *portfolio*, and then **Target** is your GitHub page: *<user_name>.github.io* eg.: toby.github.io
+
+Last thing to do is to set baseUrl in the *hugo.toml* ! Mine looks like this:
+>baseURL = 'https://portfolio.obli.dk/'
+
+Its in the very top of the file.
+
+Remember to commit and push your changes.
+
+Thats it! If you had patience, your site should now be up and running, and looking fiiiine!
+
+Thanks for reading!

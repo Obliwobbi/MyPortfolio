@@ -89,8 +89,8 @@
 
 <link
   rel="stylesheet"
-  href="/css/theme.min.86a32b729f656fc6c119ed69193950db815a3ad9fdc967b32c76d602f11449a4.css"
-  integrity="sha256-hqMrcp9lb8bBGe1pGTlQ24FaOtn9yWezLHbWAvEUSaQ=">
+  href="/css/theme.min.a251f6659747f13720004e758411b578202d6d8c8dd101f6d21a21fb1bb104b2.css"
+  integrity="sha256-olH2ZZdH8TcgAE51hBG1eCAtbYyN0QH20hoh&#43;xuxBLI=">
 
 <link
     rel="stylesheet"
@@ -424,7 +424,7 @@
             stroke-width="2"
             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
         </svg>
-        1036 words
+        1147 words
       </span>
     
 
@@ -438,7 +438,7 @@
             stroke-width="2"
             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
-        5 min
+        6 min
       </span>
     
   </div>
@@ -679,6 +679,25 @@ This tells Hugo how to structure and render the site.</li>
 <p>Once everything was set up, I initalized a Git repository, pushed it to Github, and configured GitHub Pages with GitHub Actions. This means the site automatically builds and deploys whenever I push changes, including new blog posts.<br>
 This was done using the official Hugo documentation, found under <em>Docs -&gt; Host and Deploy -&gt; Host on GitHub Pages</em> .. or <a href="https://gohugo.io/host-and-deploy/host-on-github-pages/">click here</a> for direct link.</p>
 <p>After the site was deployed using GitHub Pages, I connected a custom domain using <strong>Cloudflare DNS</strong>, so the site is avaiable under my own domain. This can take some time, before the DNS updates through the internet, so patience was needed!</p>
+<p>Just make a <strong>DNS record</strong> where the <em>type</em> is <strong>CNAME</strong> where ever you have your DNS, I&rsquo;m using Cloudflare, here, make sure you uncheck the orange proxy button so its <strong>DNS Only</strong></p>
+<p><em>Name</em> should be what ever you want infront of your domain, here i used <em>portfolio</em>, and then <strong>Target</strong> is your GitHub page: <em>&lt;user_name&gt;.github.io</em> eg.: toby.github.io</p>
+<p>Last thing to do is to set baseUrl in the <em>hugo.toml</em> ! Mine looks like this:</p>
+
+
+
+
+
+
+
+
+<blockquote class="blockquote-regular">
+  <p>baseURL = &lsquo;<a href="https://portfolio.obli.dk/'">https://portfolio.obli.dk/'</a></p>
+
+</blockquote>
+<p>Its in the very top of the file.</p>
+<p>Remember to commit and push your changes.</p>
+<p>Thats it! If you had patience, your site should now be up and running, and looking fiiiine!</p>
+<p>Thanks for reading!</p>
 
       </div>
 
@@ -904,7 +923,7 @@ This was done using the official Hugo documentation, found under <em>Docs -&gt; 
 
 
 
-<script src="/js/main.min.5809f4b25863ee26413f19a2183716d6a5b52e3a8bd308a7dd764fb5bd4d6d36.js" defer></script>
+<script src="/js/main.min.cdc6a3c4f498c0556bc507848c493a55af2da9b14233c21300b240b89857180d.js" defer></script>
 
   </body>
 </html>
