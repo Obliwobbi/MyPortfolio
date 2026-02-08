@@ -1,0 +1,821 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+  class="h-full">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="en-us">
+<script>
+  
+  (function () {
+    const storedTheme = localStorage.getItem("theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const theme = storedTheme || (systemPrefersLight ? "light" : "dark");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<title>How I get started! | Tobys Portfolio</title>
+<meta
+  name="description"
+  content="
+    Starting simple So, putting the cards on the table: I have a hard time getting started with… well, everything. I have always had that issue. But that’s not what …
+  
+  ">
+
+
+  <meta name="keywords" content="how-to, planning, JPA, java, JPQL">
+
+
+
+  <meta name="author" content="Toby Alexander West Mietke Hartzberg">
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/starting-the-project/">
+
+<meta name="robots" content="index, follow">
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="How I get started! | Tobys Portfolio">
+<meta property="og:description" content="Starting simple So, putting the cards on the table: I have a hard time getting started with… well, everything. I have always had that issue. But that’s not what …">
+<meta property="og:url" content="http://localhost:1313/posts/starting-the-project/">
+<meta property="og:site_name" content="Tobys Portfolio"><meta property="article:published_time" content="2026-02-08T00:00:00Z">
+  <meta
+    property="article:modified_time"
+    content="2026-02-08T00:00:00Z"><meta property="article:author" content="Toby Alexander West Mietke Hartzberg"><meta property="article:section" content="how-to"><meta property="article:tag" content="how-to"><meta property="article:tag" content="planning"><meta property="article:tag" content="JPA"><meta property="article:tag" content="java"><meta property="article:tag" content="JPQL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How I get started! | Tobys Portfolio">
+<meta name="twitter:description" content="Starting simple So, putting the cards on the table: I have a hard time getting started with… well, everything. I have always had that issue. But that’s not what …">
+
+<script type="application/ld+json">
+
+
+
+
+
+
+
+
+
+
+"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"Toby Alexander West Mietke Hartzberg\"},\"dateModified\":\"2026-02-08T00:00:00Z\",\"datePublished\":\"2026-02-08T00:00:00Z\",\"description\":\"Starting simple So, putting the cards on the table: I have a hard time getting started with… well, everything. I have always had that issue. But that’s not what …\",\"headline\":\"How I get started!\",\"image\":null,\"keywords\":[\"how-to\",\"planning\",\"JPA\",\"java\",\"JPQL\"],\"mainEntityOfPage\":{\"@id\":\"http://localhost:1313/posts/starting-the-project/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":null},\"name\":\"Tobys Portfolio\"}}"</script>
+
+
+
+  
+  
+  
+    
+  
+  
+<script type="application/ld+json">"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/\",\"name\":\"Tobys Portfolio\",\"position\":1},{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/posts/\",\"name\":\"Posts\",\"position\":2},{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/posts/starting-the-project/\",\"name\":\"How I get started!\",\"position\":3}]}"</script>
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+  rel="stylesheet">
+
+
+<link
+  rel="stylesheet"
+  href="/css/theme.min.a251f6659747f13720004e758411b578202d6d8c8dd101f6d21a21fb1bb104b2.css"
+  integrity="sha256-olH2ZZdH8TcgAE51hBG1eCAtbYyN0QH20hoh&#43;xuxBLI=">
+
+<link
+    rel="stylesheet"
+    href="/css/syntax-dark.min.b01037e5609e6260b74d6fcdd6d5131e8dcbc4d46d6ef4bfbe5a60bdfc1a9f30.css"
+    integrity="sha256-sBA35WCeYmC3TW/N1tUTHo3LxNRtbvS/vlpgvfwanzA="
+    id="syntax-dark-theme"
+    class="syntax-theme"><link
+    rel="stylesheet"
+    href="/css/syntax-light.min.9602bc2fcef52b4c62e05eae14b48ba428e114f116e993e504d83ed5a3aeda98.css"
+    integrity="sha256-lgK8L871K0xi4F6uFLSLpCjhFPEW6ZPlBNg&#43;1aOu2pg="
+    id="syntax-light-theme"
+    class="syntax-theme"
+    disabled><script>
+  
+  (function () {
+    const storedTheme = localStorage.getItem("theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const theme = storedTheme || (systemPrefersLight ? "light" : "dark");
+
+    const syntaxDark = document.getElementById("syntax-dark-theme");
+    const syntaxLight = document.getElementById("syntax-light-theme");
+
+    if (theme === "light") {
+      if (syntaxDark) syntaxDark.disabled = true;
+      if (syntaxLight) syntaxLight.disabled = false;
+    } else {
+      if (syntaxDark) syntaxDark.disabled = false;
+      if (syntaxLight) syntaxLight.disabled = true;
+    }
+
+    
+    const observer = new MutationObserver(() => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      if (currentTheme === "light") {
+        if (syntaxDark) syntaxDark.disabled = true;
+        if (syntaxLight) syntaxLight.disabled = false;
+      } else {
+        if (syntaxDark) syntaxDark.disabled = false;
+        if (syntaxLight) syntaxLight.disabled = true;
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  })();
+</script>
+
+
+
+
+<link
+  rel="stylesheet"
+  href="/css/bundle.min.d430be27649a3685c7891f7076e3e50f97bf39aabb96c243b89902f3dc6c9ead.css"
+  integrity="sha256-1DC&#43;J2SaNoXHiR9wduPlD5e/Oaq7lsJDuJkC89xsnq0=">
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/logo-transparent/favicon-32x32.png">
+
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/logo-transparent/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/logo-transparent/apple-touch-icon.png">
+<link
+  rel="icon"
+  type="image/png"
+  sizes="192x192"
+  href="/favicon/logo-transparent/android-chrome-192x192.png">
+<link
+  rel="icon"
+  type="image/png"
+  sizes="512x512"
+  href="/favicon/logo-transparent/android-chrome-512x512.png">
+<link rel="manifest" href="/favicon/logo-transparent/site.webmanifest">
+
+
+
+
+  
+
+
+
+
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <a href="#main-content" class="skip-to-main" aria-label="Skip to main content"
+      >Skip to main content</a
+    >
+    <header class="sticky-header">
+      <div class="header-container">
+        <nav class="header-nav" role="navigation" aria-label="Main navigation">
+  <div class="header-content">
+    <div class="header-logo">
+      <a href="/" class="logo-link" aria-label="Home - Tobys Portfolio">
+        Tobys Portfolio
+      </a>
+    </div>
+
+    
+    <button 
+      id="mobile-menu-toggle" 
+      class="mobile-menu-toggle" 
+      aria-label="Toggle menu" 
+      aria-expanded="false"
+      type="button">
+      <span class="hamburger-icon">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </span>
+    </button>
+
+    <div class="header-menu">
+      <ul class="menu-list">
+  
+    <li class="menu-item">
+      <a
+        href="/"
+        class="menu-link ">
+        Home
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/posts/"
+        class="menu-link ">
+        Posts
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/tags/"
+        class="menu-link ">
+        Tags
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/projects/"
+        class="menu-link ">
+        Projects
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/about/"
+        class="menu-link ">
+        About
+      </a>
+    </li>
+  
+</ul>
+
+
+      <button id="search-toggle" class="search-toggle" aria-label="Search" type="button">
+        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </button>
+
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
+  <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+  </svg>
+  <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+  </svg>
+</button>
+
+    </div>
+  </div>
+
+  
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-title">Menu</span>
+        <button 
+          id="mobile-menu-close" 
+          class="mobile-menu-close" 
+          aria-label="Close menu" 
+          type="button">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav" role="navigation" aria-label="Mobile navigation">
+        <ul class="menu-list">
+  
+    <li class="menu-item">
+      <a
+        href="/"
+        class="menu-link ">
+        Home
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/posts/"
+        class="menu-link ">
+        Posts
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/tags/"
+        class="menu-link ">
+        Tags
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/projects/"
+        class="menu-link ">
+        Projects
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/about/"
+        class="menu-link ">
+        About
+      </a>
+    </li>
+  
+</ul>
+
+      </nav>
+      <div class="mobile-menu-footer">
+        <button id="mobile-search-toggle" class="mobile-search-toggle" aria-label="Search" type="button">
+          <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <span>Search</span>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle theme" type="button">
+          <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+      </div>
+    </header>
+
+    <main id="main-content" class="flex-1" role="main">
+      
+  <div class="single-post-wrapper">
+    <article class="single-post">
+      
+
+
+
+
+
+
+
+      <header class="post-header">
+        <h1 class="post-title-main">How I get started!</h1>
+
+        
+
+        <div class="post-meta">
+  <div class="post-meta-info">
+    <time datetime="2026-02-08T00:00:00Z" class="post-date">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+      </svg>
+      February 8, 2026
+    </time>
+
+    <span class="meta-separator">•</span>
+
+    
+      <span class="post-word-count">
+        <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        837 words
+      </span>
+    
+
+    
+      <span class="meta-separator">•</span>
+      <span class="post-reading-time">
+        <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        4 min
+      </span>
+    
+  </div>
+
+  
+    <div class="post-tags">
+      
+        <a href="/tags/how-to" class="post-tag">how-to</a>
+      
+        <a href="/tags/planning" class="post-tag">planning</a>
+      
+        <a href="/tags/jpa" class="post-tag">JPA</a>
+      
+        <a href="/tags/java" class="post-tag">java</a>
+      
+        <a href="/tags/jpql" class="post-tag">JPQL</a>
+      
+    </div>
+  
+</div>
+
+      </header>
+
+      <div class="post-content-main">
+        <h1 id="starting-simple">Starting simple</h1>
+<p>So, putting the cards on the table: I have a hard time getting started with… well, everything.
+I have always had that issue. But that’s not what I’m really going to talk about today… or write about, he he, I’ll have to get used to this blogging thing.</p>
+<p>What I do want to write about today is how I get started, and this is something my dear wife has taught me over time:</p>
+<p><em>Start with something simple.</em></p>
+<p>This sounds obvious, almost trivial, but in practice, it is incredibly hard when you are building software and constantly thinking ahead.</p>
+<p>To help myself get unstick, I decided to follow <strong>four very simple steps</strong>, which I&rsquo;ll walk through there.</p>
+<h3 id="1-write-one-sentence">1. Write one sentence</h3>
+<p>Before writing any code, drawing diagrams, or thinking about architecture, I forced myself to write one single sentence, describing what I wanted to achieve.</p>
+<p>And the sentence I wrote:<br></p>
+
+
+
+
+
+
+
+
+<blockquote class="blockquote-regular">
+  <p><em>I want to be able to save a user/member in a database and fetch it again.</em></p>
+
+</blockquote>
+<p>With that sentence, I knew what was needed, a user entity and a database, easy! Now to what that entity requires, so on to step two.</p>
+<h3 id="2-what-is-the-least-that-needs-to-exist">2. What is the least that needs to exist?</h3>
+<p>Here, I try to answer three simple questions in my sentence:</p>
+<p><strong>What <em>thing</em> am I saving?</strong> <br>
+&ndash; <em>a user</em><br>
+<strong>What does it HAS to have?</strong> <br>
+&ndash; <em>id,email</em><br>
+<strong>Where is it saved?</strong> <br>
+&ndash; <em>a database (JPA)</em></p>
+<p>Awesome, super simple, almost boring, I know. But for some people, this is the way to go!</p>
+<h3 id="3-make-it-boring">3. Make it boring!</h3>
+<p>This is almost the most understimated step, but making it so simple its boring is how most people can better get through. If you keep it at:</p>
+<ul>
+<li>One entity</li>
+<li>One table</li>
+<li>One repository/DAO</li>
+</ul>
+<p>If this feels like its <em>too</em> simple, thats a good sign! Keep going. The goal here is not to impress <strong>anyone</strong>, this is for you to get started!</p>
+<h3 id="4-only-expand-after-something-works">4. Only expand after something works</h3>
+<p>Only after I could:</p>
+<ul>
+<li>Persist a <em>user</em></li>
+<li>Retrieve it again</li>
+<li>See an ID printed in the console (that matched)</li>
+</ul>
+<p>then I allowed myself to think about what comes next.</p>
+<p>This mindset shift alone helped me move forward instead of getting stuck to planning a system that didnt exist yet.</p>
+<h1 id="first-domain-model">First domain model</h1>
+<p>The first entity I implemented was <code>User</code>, containing only essential fields:</p>
+<ul>
+<li>id</li>
+<li>email</li>
+<li>firstname</li>
+<li>lastname</li>
+<li>role (as enum)</li>
+<li>passwordHash (placeholder for later security work)</li>
+</ul>
+<p>I also made a few conscous early decisions:</p>
+<ul>
+<li>Database constraints (nullable, unique)</li>
+<li>Enums instead of strings</li>
+<li>Letting the database help enforce rules</li>
+</ul>
+<p>This keeps business rules close to the data model and avoids unnecessary complexity later.</p>
+<h1 id="introducing-company-and-relationships">Introducing Company and relationships</h1>
+<p>Once the basic <code>User</code> persistence worked, I introduced a <code>Company</code> entity.</p>
+<p>A user must belong to a company in order for a membership to make sense later, so instead of storing a raw companyId, I modeled this as a JPA <strong>Many-to-One</strong> relationship.</p>
+<p>This reflects the real-world domain better and allows Hibernate to manage:</p>
+<ul>
+<li>Foreign keys</li>
+<li>Joins</li>
+<li>Object navigation</li>
+</ul>
+<h1 id="core-domain---week-1">Core domain - Week 1</h1>
+<p><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="CLASS" height="477px" preserveAspectRatio="none" style="width:538px;height:577px;background:#FFFFFF;" version="1.1" viewBox="0 0 338 377" width="438px" zoomAndPan="magnify"><title>Core Domain - Week 1</title><defs/><g><g class="title" data-source-line="1"><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="147.8135" x="88.1846" y="25.1074">Core Domain - Week 1</text></g><!--class User--><g class="entity" data-entity="User" data-source-line="3" data-uid="ent0002" id="entity_User"><rect fill="#F1F1F1" height="159.7266" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="152.8408" x="7" y="46.6211"/><ellipse cx="64.3911" cy="62.6211" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/><path d="M67.1567,58.4961 Q67.313,58.2773 67.5005,58.168 Q67.688,58.0586 67.9067,58.0586 Q68.2817,58.0586 68.5161,58.3242 Q68.7505,58.5742 68.7505,59.1836 L68.7505,60.6367 Q68.7505,61.2461 68.5161,61.5117 Q68.2817,61.7773 67.9067,61.7773 Q67.563,61.7773 67.3599,61.5742 Q67.1567,61.3867 67.0474,60.8711 Q67.0005,60.5117 66.813,60.3242 Q66.4849,59.9492 65.8755,59.7305 Q65.2661,59.5117 64.6411,59.5117 Q63.8755,59.5117 63.2349,59.8398 Q62.6099,60.168 62.1099,60.918 Q61.6255,61.668 61.6255,62.6992 L61.6255,63.793 Q61.6255,65.0273 62.5161,65.8555 Q63.4067,66.668 65.0005,66.668 Q65.938,66.668 66.5942,66.418 Q66.9849,66.2617 67.4067,65.8242 Q67.6724,65.5586 67.813,65.4805 Q67.9692,65.4023 68.1724,65.4023 Q68.5005,65.4023 68.7505,65.668 Q69.0161,65.918 69.0161,66.2617 Q69.0161,66.6055 68.6724,67.0117 Q68.1724,67.5898 67.3755,67.918 Q66.2974,68.3711 65.0005,68.3711 Q63.4849,68.3711 62.2817,67.7461 Q61.2974,67.2461 60.6099,66.1836 Q59.9224,65.1055 59.9224,63.8242 L59.9224,62.668 Q59.9224,61.3398 60.5317,60.1992 Q61.1567,59.043 62.2505,58.4336 Q63.3442,57.8086 64.5786,57.8086 Q65.313,57.8086 65.9536,57.9805 Q66.6099,58.1367 67.1567,58.4961 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29.5586" x="84.8911" y="68.418">User</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="158.8408" y1="78.6211" y2="78.6211"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53.71" x="13" y="97.7285">id : Long</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81.6963" x="13" y="116.3496">email : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105.8135" x="13" y="134.9707">firstname : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105.0479" x="13" y="153.5918">lastname : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140.8408" x="13" y="172.2129">passwordHash : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63.8066" x="13" y="190.834">role : Role</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="158.8408" y1="198.3477" y2="198.3477"/></g><!--class Company--><g class="entity" data-entity="Company" data-source-line="12" data-uid="ent0003" id="entity_Company"><rect fill="#F1F1F1" height="85.2422" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="95.2617" x="36" y="285.6211"/><ellipse cx="52.5051" cy="301.6211" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/><path d="M55.2708,297.4961 Q55.427,297.2773 55.6145,297.168 Q55.802,297.0586 56.0208,297.0586 Q56.3958,297.0586 56.6301,297.3242 Q56.8645,297.5742 56.8645,298.1836 L56.8645,299.6367 Q56.8645,300.2461 56.6301,300.5117 Q56.3958,300.7773 56.0208,300.7773 Q55.677,300.7773 55.4739,300.5742 Q55.2708,300.3867 55.1614,299.8711 Q55.1145,299.5117 54.927,299.3242 Q54.5989,298.9492 53.9895,298.7305 Q53.3801,298.5117 52.7551,298.5117 Q51.9895,298.5117 51.3489,298.8398 Q50.7239,299.168 50.2239,299.918 Q49.7395,300.668 49.7395,301.6992 L49.7395,302.793 Q49.7395,304.0273 50.6301,304.8555 Q51.5208,305.668 53.1145,305.668 Q54.052,305.668 54.7083,305.418 Q55.0989,305.2617 55.5208,304.8242 Q55.7864,304.5586 55.927,304.4805 Q56.0833,304.4023 56.2864,304.4023 Q56.6145,304.4023 56.8645,304.668 Q57.1301,304.918 57.1301,305.2617 Q57.1301,305.6055 56.7864,306.0117 Q56.2864,306.5898 55.4895,306.918 Q54.4114,307.3711 53.1145,307.3711 Q51.5989,307.3711 50.3958,306.7461 Q49.4114,306.2461 48.7239,305.1836 Q48.0364,304.1055 48.0364,302.8242 L48.0364,301.668 Q48.0364,300.3398 48.6458,299.1992 Q49.2708,298.043 50.3645,297.4336 Q51.4583,296.8086 52.6926,296.8086 Q53.427,296.8086 54.0676,296.9805 Q54.7239,297.1367 55.2708,297.4961 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59.917" x="66.8396" y="307.418">Company</text><line style="stroke:#181818;stroke-width:0.5;" x1="37" x2="130.2617" y1="317.6211" y2="317.6211"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53.71" x="42" y="336.7285">id : Long</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83.2617" x="42" y="355.3496">name : String</text><line style="stroke:#181818;stroke-width:0.5;" x1="37" x2="130.2617" y1="362.8633" y2="362.8633"/></g><!--class Role--><g class="entity" data-entity="Role" data-source-line="17" data-uid="ent0004" id="entity_Role"><rect fill="#F1F1F1" height="103.8633" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="135.6826" x="195.5" y="74.6211"/><ellipse cx="244.6948" cy="90.6211" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/><path d="M243.5542,91.418 L243.5542,93.918 L247.8823,93.918 L247.8823,92.9961 Q247.8823,92.3867 248.1167,92.1211 Q248.3667,91.8555 248.7417,91.8555 Q249.1167,91.8555 249.3511,92.1211 Q249.5854,92.3867 249.5854,92.9961 L249.5854,95.6211 L241.5854,95.6211 Q240.9604,95.6211 240.6948,95.3867 Q240.4448,95.1523 240.4448,94.7617 Q240.4448,94.3867 240.7104,94.1523 Q240.9761,93.918 241.5854,93.918 L241.8511,93.918 L241.8511,87.2617 L241.5854,87.2617 Q240.9604,87.2617 240.6948,87.0273 Q240.4448,86.793 240.4448,86.4023 Q240.4448,86.0273 240.6948,85.793 Q240.9604,85.5586 241.5854,85.5586 L249.2104,85.5586 L249.2104,88.1523 Q249.2104,88.7617 248.9761,89.0273 Q248.7573,89.2773 248.3667,89.2773 Q247.9917,89.2773 247.7573,89.0273 Q247.5229,88.7617 247.5229,88.1523 L247.5229,87.2617 L243.5542,87.2617 L243.5542,89.7148 L245.0386,89.7148 Q245.0386,89.0586 245.1636,88.8711 Q245.4292,88.4648 245.8979,88.4648 Q246.2729,88.4648 246.5073,88.7305 Q246.7417,88.9805 246.7417,89.5898 L246.7417,91.5586 Q246.7417,92.1055 246.6167,92.293 Q246.3511,92.6836 245.8979,92.6836 Q245.4292,92.6836 245.1636,92.2773 Q245.0386,92.0898 245.0386,91.418 L243.5542,91.418 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28.793" x="265.1948" y="96.418">Role</text><line style="stroke:#181818;stroke-width:0.5;" x1="196.5" x2="330.1826" y1="106.6211" y2="106.6211"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.4482" x="201.5" y="125.7285">MEMBER</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123.6826" x="201.5" y="144.3496">COMPANY_ADMIN</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110.4619" x="201.5" y="162.9707">SYSTEM_ADMIN</text><line style="stroke:#181818;stroke-width:0.5;" x1="196.5" x2="330.1826" y1="170.4844" y2="170.4844"/></g><!--link User to Company--><g class="link" data-entity-1="User" data-entity-2="Company" data-source-line="23" data-uid="lnk5" id="link_User_Company"><path codeLine="23" d="M83.5,206.7511 C83.5,233.6211 83.5,256.5811 83.5,279.3611" fill="none" id="User-to-Company" style="stroke:#181818;stroke-width:1;"/><polygon fill="#181818" points="83.5,285.3611,87.5,276.3611,83.5,280.3611,79.5,276.3611,83.5,285.3611" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59.9917" x="84.5" y="251.6494">belongs to</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="31.7891" x="51.2087" y="228.4203">many</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21.6899" x="60.8607" y="274.2237">one</text></g><!--SRC=[PO_D2i8m48JlVOgbznwyzY3Kjg1WghIAz2HHLmtcfoGH4V7TNODAfQVT6MRsOxtm4Y4t5g4mYWiD2MmGBp2Aehtapi7QeOL7120EaCBSw1FjI559il5M1ECehFEQA-oRr1zu7Tsy6NkOSdVk-zR8Twwc4Js_xDoeZklx0Fz_bEAehofqGvILR5BMjEGBjiogTfiLR5QHRjfcLRAFf5huBLQ4Y259nX0RZV6Fci8E9G4TUFC2]--></g></svg></p>
+<h1 id="persistence-layer---dao-responsibility">Persistence layer - DAO responsibility</h1>
+<p>For pesistence, I implemented a DAO for each entity.</p>
+<p>The DAO&rsquo;s responsibility is <em>only</em>:</p>
+<ul>
+<li>Opening an EntityManager</li>
+<li>Handling transactions</li>
+<li>Persisting and retrieving entities</li>
+</ul>
+<p>It contains <strong>no business logic</strong>, <strong>no validation</strong> and <strong>no application rules</strong>.</p>
+<p>This separation keeps the code easier to reason about and easier to extend later.</p>
+<h1 id="dao-interaction-overview">DAO interaction overview</h1>
+<p><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="SEQUENCE" height="240px" preserveAspectRatio="none" style="width:565px;height:276px;background:#FFFFFF;" version="1.1" viewBox="0 0 491 240" width="491px" zoomAndPan="magnify"><title>DAO Interaction</title><defs/><g><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="106.5654" x="191.6282" y="30.1074">DAO Interaction</text><g><title>Main</title><rect fill="#000000" fill-opacity="0.00000" height="124.582" width="8" x="23.1724" y="78.2422"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5,5;" x1="27" x2="27" y1="78.2422" y2="202.8242"/></g><g><title>CompanyDAO</title><rect fill="#000000" fill-opacity="0.00000" height="124.582" width="8" x="147.5986" y="78.2422"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5,5;" x1="151.4712" x2="151.4712" y1="78.2422" y2="202.8242"/></g><g><title>UserDAO</title><rect fill="#000000" fill-opacity="0.00000" height="124.582" width="8" x="246.6743" y="78.2422"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5,5;" x1="249.7261" x2="249.7261" y1="78.2422" y2="202.8242"/></g><g><title>EntityManager</title><rect fill="#000000" fill-opacity="0.00000" height="124.582" width="8" x="345.7568" y="78.2422"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5,5;" x1="349.6226" x2="349.6226" y1="78.2422" y2="202.8242"/></g><g><title>Database</title><rect fill="#000000" fill-opacity="0.00000" height="124.582" width="8" x="444.8564" y="78.2422"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5,5;" x1="447.8911" x2="447.8911" y1="78.2422" y2="202.8242"/></g><g class="participant participant-head" data-participant="Main"><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="44.3447" x="5" y="44.6211"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30.3447" x="12" y="66.7285">Main</text></g><g class="participant participant-tail" data-participant="Main"><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="44.3447" x="5" y="201.8242"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30.3447" x="12" y="223.9316">Main</text></g><g class="participant participant-head" data-participant="CompanyDAO"><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="104.2549" x="99.4712" y="44.6211"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90.2549" x="106.4712" y="66.7285">CompanyDAO</text></g><g class="participant participant-tail" data-participant="CompanyDAO"><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="104.2549" x="99.4712" y="201.8242"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90.2549" x="106.4712" y="223.9316">CompanyDAO</text></g><g class="participant participant-head" data-participant="UserDAO"><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="73.8965" x="213.7261" y="44.6211"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59.8965" x="220.7261" y="66.7285">UserDAO</text></g><g class="participant participant-tail" data-participant="UserDAO"><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="73.8965" x="213.7261" y="201.8242"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59.8965" x="220.7261" y="223.9316">UserDAO</text></g><g class="participant participant-head" data-participant="EntityManager"><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="104.2686" x="297.6226" y="44.6211"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90.2686" x="304.6226" y="66.7285">EntityManager</text></g><g class="participant participant-tail" data-participant="EntityManager"><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="104.2686" x="297.6226" y="201.8242"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90.2686" x="304.6226" y="223.9316">EntityManager</text></g><g class="participant participant-head" data-participant="Database"><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="73.9307" x="411.8911" y="44.6211"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59.9307" x="418.8911" y="66.7285">Database</text></g><g class="participant participant-tail" data-participant="Database"><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="73.9307" x="411.8911" y="201.8242"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59.9307" x="418.8911" y="223.9316">Database</text></g><g class="message" data-participant-1="Main" data-participant-2="CompanyDAO"><polygon fill="#181818" points="139.5986,107.5332,149.5986,111.5332,139.5986,115.5332,143.5986,111.5332" style="stroke:#181818;stroke-width:1;"/><line style="stroke:#181818;stroke-width:1;stroke-dasharray:2,2;" x1="27.1724" x2="145.5986" y1="111.5332" y2="111.5332"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="100.4263" x="34.1724" y="106.2705">createCompany()</text></g><g class="message" data-participant-1="Main" data-participant-2="UserDAO"><polygon fill="#181818" points="238.6743,138.8242,248.6743,142.8242,238.6743,146.8242,242.6743,142.8242" style="stroke:#181818;stroke-width:1;"/><line style="stroke:#181818;stroke-width:1;stroke-dasharray:2,2;" x1="27.1724" x2="244.6743" y1="142.8242" y2="142.8242"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="72.2363" x="34.1724" y="137.5615">createUser()</text></g><g class="message" data-participant-1="UserDAO" data-participant-2="EntityManager"><polygon fill="#181818" points="337.7568,152.8242,347.7568,156.8242,337.7568,160.8242,341.7568,156.8242" style="stroke:#181818;stroke-width:1;"/><line style="stroke:#181818;stroke-width:1;stroke-dasharray:2,2;" x1="250.6743" x2="343.7568" y1="156.8242" y2="156.8242"/></g><g class="message" data-participant-1="CompanyDAO" data-participant-2="EntityManager"><polygon fill="#181818" points="337.7568,166.8242,347.7568,170.8242,337.7568,174.8242,341.7568,170.8242" style="stroke:#181818;stroke-width:1;"/><line style="stroke:#181818;stroke-width:1;stroke-dasharray:2,2;" x1="151.5986" x2="343.7568" y1="170.8242" y2="170.8242"/></g><g class="message" data-participant-1="EntityManager" data-participant-2="Database"><polygon fill="#181818" points="436.8564,180.8242,446.8564,184.8242,436.8564,188.8242,440.8564,184.8242" style="stroke:#181818;stroke-width:1;"/><line style="stroke:#181818;stroke-width:1;stroke-dasharray:2,2;" x1="349.7568" x2="442.8564" y1="184.8242" y2="184.8242"/></g><!--SRC=[AyaioKbLS77qL_3CAqajIamkoSpFu-BoJSpCKz3LjLDmpiyjICoh12cmKaWkIaqiIOKAQMWYL8KMfnOXAm7nWV9SC76G6jUyaioIIj_4lCJqr28k97Cn9RbGk605BeabYKc9nQa0]--></g></svg></p>
+<h1 id="understanding-entity-state">Understanding entity state</h1>
+<p>One of the most important things I learned this week was how <strong>entity state</strong> works in JPA.</p>
+<p>When a <code>Company</code> is persisted in one transaction and later used when creating a <code>User</code>, the entity becomes <em>detached</em>..<br>
+Hibernate idtentifies entities only by their primary key, so calling <code>merge(company)</code> ensures the entity is reattached to the current persistence context before persisting the <code>User</code>.</p>
+<p>This was a key &ldquo;aha&rdquo; moment for me, that clarified how Hibernate knows which database row an object represents.</p>
+<h1 id="querying-data---finding-a-user-by-email">Querying data - finding a user by email</h1>
+<p>Since <code>EntityManager.find()</code> only works with primary keys, I used JPQL to find users by email:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="n">SELECT</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">FROM</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="n">WHERE</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">:</span><span class="n">email</span><span class="w">
+</span></span></span></code></pre></div><p>The DAO then returns an <code>Optional&lt;User&gt;</code>, making the absence of data explicit and avoiding <em>null</em></p>
+<p>Example usage:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="n">userDAO</span><span class="p">.</span><span class="na">findByEmail</span><span class="p">(</span><span class="s">&#34;mail@mail.dk&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">ifPresentOrElse</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">userFound</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="s">&#34;Found: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">userFound</span><span class="p">.</span><span class="na">getEmail</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; id=&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">userFound</span><span class="p">.</span><span class="na">getId</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;No user found&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h1 id="reflection">Reflection</h1>
+<p>This session taught me that:</p>
+<ul>
+<li>Getting started is often harder than solving the problem istelf</li>
+<li>Over-planning can block progress</li>
+<li>A small, working foundation beats a large unfinished design</li>
+<li>JPA concepts make much more sense once you see them fail and then work</li>
+</ul>
+<p>Most importantly, I now have a *<em>stable base</em> I can confidently build on in the coming weeks.</p>
+<h1 id="my-next-steps">My next steps</h1>
+<ul>
+<li>Add more read operations (<code>findById</code>,<code>findAll</code>, etc.. ALL THE CRUDS!)</li>
+<li>Introduce a service layer when business rules appear</li>
+<li>Prepare for REST endpoints</li>
+<li>Continue expanding the system incrementally</li>
+</ul>
+<p>Until next time! See you around!</p>
+
+      </div>
+
+      
+        <footer class="post-footer">
+          <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            
+              <a href="/tags/how-to" class="post-tag">how-to</a>
+            
+              <a href="/tags/planning" class="post-tag">planning</a>
+            
+              <a href="/tags/jpa" class="post-tag">JPA</a>
+            
+              <a href="/tags/java" class="post-tag">java</a>
+            
+              <a href="/tags/jpql" class="post-tag">JPQL</a>
+            
+          </div>
+        </footer>
+      
+
+
+      <nav class="post-navigation" aria-label="Post navigation">
+        
+          <a
+            href="/posts/the-beginning/"
+            class="nav-link nav-prev"
+            aria-label="Previous post: The Beginning of My Project: Member Systems">
+            <span class="nav-label">Previous</span>
+            <span class="nav-title">The Beginning of My Project: Member Systems</span>
+          </a>
+        
+
+        
+      </nav>
+    </article>
+
+    
+  <aside class="post-toc" id="post-toc" aria-label="Table of contents">
+    <button
+      class="toc-toggle"
+      id="toc-toggle"
+      aria-expanded="true"
+      aria-controls="toc-content"
+      aria-label="Toggle table of contents">
+      <svg
+        class="toc-burger-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <span class="toc-toggle-text">Table of Contents</span>
+      <svg
+        class="toc-chevron-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+    <div class="toc-content" id="toc-content">
+      <nav class="toc-nav" aria-label="Table of contents">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#starting-simple">Starting simple</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#1-write-one-sentence">1. Write one sentence</a></li>
+            <li><a href="#2-what-is-the-least-that-needs-to-exist">2. What is the least that needs to exist?</a></li>
+            <li><a href="#3-make-it-boring">3. Make it boring!</a></li>
+            <li><a href="#4-only-expand-after-something-works">4. Only expand after something works</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#first-domain-model">First domain model</a></li>
+    <li><a href="#introducing-company-and-relationships">Introducing Company and relationships</a></li>
+    <li><a href="#core-domain---week-1">Core domain - Week 1</a></li>
+    <li><a href="#persistence-layer---dao-responsibility">Persistence layer - DAO responsibility</a></li>
+    <li><a href="#dao-interaction-overview">DAO interaction overview</a></li>
+    <li><a href="#understanding-entity-state">Understanding entity state</a></li>
+    <li><a href="#querying-data---finding-a-user-by-email">Querying data - finding a user by email</a></li>
+    <li><a href="#reflection">Reflection</a></li>
+    <li><a href="#my-next-steps">My next steps</a></li>
+  </ul>
+</nav>
+      </nav>
+    </div>
+  </aside>
+
+
+  </div>
+
+    </main>
+
+    <footer>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <p class="footer-text">
+      &copy;
+      
+      2026
+      
+      Tobys Portfolio.
+      
+        Built with Hugo and Mana theme
+      
+    </p>
+    
+      <div class="footer-social">
+        <div class="social-links">
+  
+    <a
+      href="https://github.com/Obliwobbi"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-link"
+      aria-label="GitHub">
+      <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill-rule="evenodd"
+          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </a>
+  
+
+  
+    <a
+      href="https://www.linkedin.com/in/tahartzberg"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-link"
+      aria-label="LinkedIn">
+      <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+      </svg>
+    </a>
+  
+
+  
+</div>
+
+      </div>
+    
+  </div>
+</footer>
+
+    </footer>
+
+    <div id="search-modal" class="search-modal" aria-hidden="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop" id="search-modal-backdrop"></div>
+  <div class="search-modal-container">
+    <div class="search-input-wrapper">
+      <svg class="search-input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+      <input
+        type="search"
+        id="search-input"
+        class="search-input"
+        placeholder="Search..."
+        autocomplete="off"
+        aria-label="Search input">
+      <button class="search-input-clear" id="search-input-clear" aria-label="Clear search">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+        </svg>
+      </button>
+      <button class="search-modal-close" id="search-modal-close" aria-label="Close search">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+</div>
+
+    
+
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" type="button">
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+  </svg>
+</button>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.cdc6a3c4f498c0556bc507848c493a55af2da9b14233c21300b240b89857180d.js" defer></script>
+
+  </body>
+</html>

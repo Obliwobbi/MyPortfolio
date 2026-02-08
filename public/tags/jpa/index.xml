@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JPA on Tobys Portfolio</title>
+    <link>http://localhost:1313/tags/jpa/</link>
+    <description>Recent content in JPA on Tobys Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 08 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/jpa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Week 1 - Getting Started!</title>
+      <link>http://localhost:1313/posts/week1-getting-started/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/week1-getting-started/</guid>
+      <description>&lt;h1 id=&#34;project-context&#34;&gt;Project Context&lt;/h1&gt;&#xA;&lt;p&gt;At the beginning of this project, I struggled more than expected with &lt;em&gt;where&lt;/em&gt; to start.&lt;br&gt;&#xA;Not because the system iteslf was complex, but because I tried to design &lt;strong&gt;everything at once&lt;/strong&gt;, that means:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Entities&lt;/li&gt;&#xA;&lt;li&gt;Architecture&lt;/li&gt;&#xA;&lt;li&gt;Relations&lt;/li&gt;&#xA;&lt;li&gt;Future features&lt;/li&gt;&#xA;&lt;li&gt;And exam requirements&#xA;This week became less about &lt;em&gt;building features&lt;/em&gt; and more about learning how to start a backend project &lt;strong&gt;properly&lt;/strong&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>
