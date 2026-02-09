@@ -7,4 +7,7 @@ author = 'Toby Alexander West Mietke Hartzberg'
 +++
 
 # Portfolio Project
+
+So, during the writing of my last blog post, I realised that I hadn't explained what my project is actually about, so today I want to dive into that.
+
 ## Member System
