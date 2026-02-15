@@ -6,48 +6,55 @@
     <description>Recent content in Tags on Tobys Portfolio</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Feb 2026 14:14:59 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>How-To</title>
-      <link>http://localhost:1313/tags/how-to/</link>
-      <pubDate>Fri, 06 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/how-to/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Planning</title>
-      <link>http://localhost:1313/tags/planning/</link>
-      <pubDate>Fri, 06 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/planning/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Database</title>
       <link>http://localhost:1313/tags/database/</link>
-      <pubDate>Thu, 05 Feb 2026 16:48:43 +0100</pubDate>
+      <pubDate>Sun, 15 Feb 2026 14:14:59 +0100</pubDate>
       <guid>http://localhost:1313/tags/database/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
       <link>http://localhost:1313/tags/java/</link>
-      <pubDate>Thu, 05 Feb 2026 16:48:43 +0100</pubDate>
+      <pubDate>Sun, 15 Feb 2026 14:14:59 +0100</pubDate>
       <guid>http://localhost:1313/tags/java/</guid>
       <description></description>
     </item>
     <item>
       <title>JPQL</title>
       <link>http://localhost:1313/tags/jpql/</link>
-      <pubDate>Thu, 05 Feb 2026 16:48:43 +0100</pubDate>
+      <pubDate>Sun, 15 Feb 2026 14:14:59 +0100</pubDate>
       <guid>http://localhost:1313/tags/jpql/</guid>
       <description></description>
     </item>
     <item>
       <title>ORM</title>
       <link>http://localhost:1313/tags/orm/</link>
-      <pubDate>Thu, 05 Feb 2026 16:48:43 +0100</pubDate>
+      <pubDate>Sun, 15 Feb 2026 14:14:59 +0100</pubDate>
       <guid>http://localhost:1313/tags/orm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>How-To</title>
+      <link>http://localhost:1313/tags/how-to/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/how-to/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JPA</title>
+      <link>http://localhost:1313/tags/jpa/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/jpa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Planning</title>
+      <link>http://localhost:1313/tags/planning/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/planning/</guid>
       <description></description>
     </item>
     <item>

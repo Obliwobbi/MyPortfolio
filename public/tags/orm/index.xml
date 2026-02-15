@@ -6,14 +6,21 @@
     <description>Recent content in ORM on Tobys Portfolio</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Feb 2026 16:48:43 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 15 Feb 2026 14:14:59 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/orm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How we are doing now - week 2</title>
+      <link>http://localhost:1313/posts/week2/</link>
+      <pubDate>Sun, 15 Feb 2026 14:14:59 +0100</pubDate>
+      <guid>http://localhost:1313/posts/week2/</guid>
+      <description>&lt;h1 id=&#34;building-a-membership-system--starting-simple-thinking-ahead&#34;&gt;Building a Membership System – Starting Simple, Thinking Ahead&lt;/h1&gt;&#xA;&lt;p&gt;When starting this portfolio project, I made one thing very clear to myself:&lt;br&gt;&#xA;this project is not about building everything at once – it is about &lt;strong&gt;building something real, step by step&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;In the past, I have often struggled with getting started on larger projects.&lt;br&gt;&#xA;Not because I lack ideas, but because I tend to overthink structure, architecture, and future requirements before anything actually exists.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The Beginning of My Project: Member Systems</title>
       <link>http://localhost:1313/posts/the-beginning/</link>
       <pubDate>Thu, 05 Feb 2026 16:48:43 +0100</pubDate>
       <guid>http://localhost:1313/posts/the-beginning/</guid>
-      <description>&lt;h1 id=&#34;portfolio-project&#34;&gt;Portfolio Project&lt;/h1&gt;&#xA;&lt;h2 id=&#34;member-system&#34;&gt;Member System&lt;/h2&gt;</description>
+      <description>&lt;h1 id=&#34;portfolio-project&#34;&gt;Portfolio Project&lt;/h1&gt;&#xA;&lt;p&gt;So, during the writing of my last blog post, I realised that I hadn&amp;rsquo;t explained what my project is actually about, so today I want to dive into that.&lt;/p&gt;&#xA;&lt;h2 id=&#34;member-system&#34;&gt;Member System&lt;/h2&gt;</description>
     </item>
   </channel>
 </rss>
