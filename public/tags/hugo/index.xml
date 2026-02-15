@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What? Why? How? - My First Post!</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
+      <link>http://localhost:1313/posts/week0-my-first-post/</link>
       <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
+      <guid>http://localhost:1313/posts/week0-my-first-post/</guid>
       <description>&lt;h1 id=&#34;my-first-blog-post&#34;&gt;My first blog post!&lt;/h1&gt;&#xA;&lt;p&gt;I thought I would tell a little bit about my short journey on how I set up this page, what it is for and then a little bit about my project!&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-is-this-page-for&#34;&gt;What is this page for?&lt;/h3&gt;&#xA;&lt;p&gt;First of all, this site is a personal blog where I&amp;rsquo;ll be documenting my journey through my &lt;em&gt;3rd term&lt;/em&gt; as and &lt;em&gt;AP in Computer Sciene&lt;/em&gt;, along with various other projects and experiments I&amp;rsquo;m working on along the way!&lt;/p&gt;</description>
     </item>
   </channel>

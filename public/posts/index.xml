@@ -9,31 +9,31 @@
     <lastBuildDate>Sun, 15 Feb 2026 14:14:59 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How we are doing now - week 2</title>
-      <link>http://localhost:1313/posts/week2/</link>
+      <title>Backend design - MORE CRUD!</title>
+      <link>http://localhost:1313/posts/week2-backend-design/</link>
       <pubDate>Sun, 15 Feb 2026 14:14:59 +0100</pubDate>
-      <guid>http://localhost:1313/posts/week2/</guid>
+      <guid>http://localhost:1313/posts/week2-backend-design/</guid>
       <description>&lt;h1 id=&#34;designing-the-backend-domain---jpa-relations-and-queries&#34;&gt;Designing the Backend Domain - JPA, Relations, and Queries&lt;/h1&gt;&#xA;&lt;p&gt;This phase of the project has focused entirely on building a solid backend foundation using &lt;strong&gt;Java, JPA, Hibernate, and PostgreSQL&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The goal was not to build features quickly, but to design a domain model and persistence layer that:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;reflects real-world relationships&lt;/li&gt;&#xA;&lt;li&gt;is easy to reason about&lt;/li&gt;&#xA;&lt;li&gt;can be extended safely as new technologies are introduced later in the semester&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;domain-driven-database-design-with-jpa&#34;&gt;Domain-driven database design with JPA&lt;/h2&gt;&#xA;&lt;p&gt;Instead of starting with SQL tables, I designed the system around &lt;strong&gt;domain concepts&lt;/strong&gt;, letting JPA handle table creation and relationships.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Why a Member System?</title>
+      <link>http://localhost:1313/posts/the-beginning/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/the-beginning/</guid>
+      <description>&lt;p&gt;So, during the writing of my last blog post, I realised that I hadn&amp;rsquo;t explained what my project is actually about and why I chose to build it, so today I want to dive into that.&lt;/p&gt;&#xA;&lt;h1 id=&#34;why-i-chose-to-build-a-membership-system&#34;&gt;Why I Chose to Build a Membership System&lt;/h1&gt;&#xA;&lt;p&gt;When choosing a project for this backend portfolio, I wanted to avoid building something purely academic.&lt;/p&gt;&#xA;&lt;p&gt;Instead of creating a system that only exists to satisfy a set of technical requirements, I wanted to work on something that:&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>How I get started!</title>
-      <link>http://localhost:1313/posts/starting-the-project/</link>
+      <link>http://localhost:1313/posts/week1-starting-the-project/</link>
       <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/starting-the-project/</guid>
+      <guid>http://localhost:1313/posts/week1-starting-the-project/</guid>
       <description>&lt;h1 id=&#34;starting-simple&#34;&gt;Starting simple&lt;/h1&gt;&#xA;&lt;p&gt;So, putting the cards on the table: I have a hard time getting started with… well, everything.&#xA;I have always had that issue. But that’s not what I’m really going to talk about today… or write about, he he, I’ll have to get used to this blogging thing.&lt;/p&gt;&#xA;&lt;p&gt;What I do want to write about today is how I get started, and this is something my dear wife has taught me over time:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>The Beginning of My Project: Member Systems</title>
-      <link>http://localhost:1313/posts/the-beginning/</link>
-      <pubDate>Thu, 05 Feb 2026 16:48:43 +0100</pubDate>
-      <guid>http://localhost:1313/posts/the-beginning/</guid>
-      <description>&lt;h1 id=&#34;portfolio-project&#34;&gt;Portfolio Project&lt;/h1&gt;&#xA;&lt;p&gt;So, during the writing of my last blog post, I realised that I hadn&amp;rsquo;t explained what my project is actually about, so today I want to dive into that.&lt;/p&gt;&#xA;&lt;h2 id=&#34;member-system&#34;&gt;Member System&lt;/h2&gt;</description>
-    </item>
-    <item>
       <title>What? Why? How? - My First Post!</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
+      <link>http://localhost:1313/posts/week0-my-first-post/</link>
       <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
+      <guid>http://localhost:1313/posts/week0-my-first-post/</guid>
       <description>&lt;h1 id=&#34;my-first-blog-post&#34;&gt;My first blog post!&lt;/h1&gt;&#xA;&lt;p&gt;I thought I would tell a little bit about my short journey on how I set up this page, what it is for and then a little bit about my project!&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-is-this-page-for&#34;&gt;What is this page for?&lt;/h3&gt;&#xA;&lt;p&gt;First of all, this site is a personal blog where I&amp;rsquo;ll be documenting my journey through my &lt;em&gt;3rd term&lt;/em&gt; as and &lt;em&gt;AP in Computer Sciene&lt;/em&gt;, along with various other projects and experiments I&amp;rsquo;m working on along the way!&lt;/p&gt;</description>
     </item>
   </channel>

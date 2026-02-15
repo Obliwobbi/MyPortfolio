@@ -17,16 +17,16 @@
     document.documentElement.setAttribute("data-theme", theme);
   })();
 </script>
-<title>Why a Member System? | Tobys Portfolio</title>
+<title>Backend design - MORE CRUD! | Tobys Portfolio</title>
 <meta
   name="description"
   content="
-    So, during the writing of my last blog post, I realised that I hadn&rsquo;t explained what my project is actually about and why I chose to build it, so today I …
+    Designing the Backend Domain - JPA, Relations, and Queries This phase of the project has focused entirely on building a solid backend foundation using Java, …
   
   ">
 
 
-  <meta name="keywords" content="Show&#39;n&#39;tell">
+  <meta name="keywords" content="java, ORM, JPQL, database">
 
 
 
@@ -34,22 +34,22 @@
 
 
 
-<link rel="canonical" href="http://localhost:1313/posts/the-beginning/">
+<link rel="canonical" href="http://localhost:1313/posts/week2-backend-design/">
 
 <meta name="robots" content="index, follow">
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Why a Member System? | Tobys Portfolio">
-<meta property="og:description" content="So, during the writing of my last blog post, I realised that I hadn&rsquo;t explained what my project is actually about and why I chose to build it, so today I …">
-<meta property="og:url" content="http://localhost:1313/posts/the-beginning/">
-<meta property="og:site_name" content="Tobys Portfolio"><meta property="article:published_time" content="2026-02-15T00:00:00Z">
+<meta property="og:title" content="Backend design - MORE CRUD! | Tobys Portfolio">
+<meta property="og:description" content="Designing the Backend Domain - JPA, Relations, and Queries This phase of the project has focused entirely on building a solid backend foundation using Java, …">
+<meta property="og:url" content="http://localhost:1313/posts/week2-backend-design/">
+<meta property="og:site_name" content="Tobys Portfolio"><meta property="article:published_time" content="2026-02-15T14:14:59&#43;01:00">
   <meta
     property="article:modified_time"
-    content="2026-02-15T00:00:00Z"><meta property="article:author" content="Toby Alexander West Mietke Hartzberg"><meta property="article:section" content="Show&#39;n&#39;tell"><meta property="article:tag" content="Show&#39;n&#39;tell">
+    content="2026-02-15T14:14:59&#43;01:00"><meta property="article:author" content="Toby Alexander West Mietke Hartzberg"><meta property="article:section" content="java"><meta property="article:tag" content="java"><meta property="article:tag" content="ORM"><meta property="article:tag" content="JPQL"><meta property="article:tag" content="database">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Why a Member System? | Tobys Portfolio">
-<meta name="twitter:description" content="So, during the writing of my last blog post, I realised that I hadn&rsquo;t explained what my project is actually about and why I chose to build it, so today I …">
+<meta name="twitter:title" content="Backend design - MORE CRUD! | Tobys Portfolio">
+<meta name="twitter:description" content="Designing the Backend Domain - JPA, Relations, and Queries This phase of the project has focused entirely on building a solid backend foundation using Java, …">
 
 <script type="application/ld+json">
 
@@ -62,7 +62,7 @@
 
 
 
-"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"Toby Alexander West Mietke Hartzberg\"},\"dateModified\":\"2026-02-15T00:00:00Z\",\"datePublished\":\"2026-02-15T00:00:00Z\",\"description\":\"So, during the writing of my last blog post, I realised that I hadn\\u0026rsquo;t explained what my project is actually about and why I chose to build it, so today I …\",\"headline\":\"Why a Member System?\",\"image\":null,\"keywords\":[\"Show'n'tell\"],\"mainEntityOfPage\":{\"@id\":\"http://localhost:1313/posts/the-beginning/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":null},\"name\":\"Tobys Portfolio\"}}"</script>
+"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"Toby Alexander West Mietke Hartzberg\"},\"dateModified\":\"2026-02-15T14:14:59+01:00\",\"datePublished\":\"2026-02-15T14:14:59+01:00\",\"description\":\"Designing the Backend Domain - JPA, Relations, and Queries This phase of the project has focused entirely on building a solid backend foundation using Java, …\",\"headline\":\"Backend design - MORE CRUD!\",\"image\":null,\"keywords\":[\"java\",\"ORM\",\"JPQL\",\"database\"],\"mainEntityOfPage\":{\"@id\":\"http://localhost:1313/posts/week2-backend-design/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":null},\"name\":\"Tobys Portfolio\"}}"</script>
 
 
 
@@ -72,7 +72,7 @@
     
   
   
-<script type="application/ld+json">"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/\",\"name\":\"Tobys Portfolio\",\"position\":1},{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/posts/\",\"name\":\"Posts\",\"position\":2},{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/posts/the-beginning/\",\"name\":\"Why a Member System?\",\"position\":3}]}"</script>
+<script type="application/ld+json">"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/\",\"name\":\"Tobys Portfolio\",\"position\":1},{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/posts/\",\"name\":\"Posts\",\"position\":2},{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/posts/week2-backend-design/\",\"name\":\"Backend design - MORE CRUD!\",\"position\":3}]}"</script>
 
 
 
@@ -396,13 +396,13 @@
 
 
       <header class="post-header">
-        <h1 class="post-title-main">Why a Member System?</h1>
+        <h1 class="post-title-main">Backend design - MORE CRUD!</h1>
 
         
 
         <div class="post-meta">
   <div class="post-meta-info">
-    <time datetime="2026-02-15T00:00:00Z" class="post-date">
+    <time datetime="2026-02-15T14:14:59&#43;01:00" class="post-date">
       <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           stroke-linecap="round"
@@ -424,7 +424,7 @@
             stroke-width="2"
             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
         </svg>
-        572 words
+        677 words
       </span>
     
 
@@ -438,7 +438,7 @@
             stroke-width="2"
             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
-        3 min
+        4 min
       </span>
     
   </div>
@@ -446,7 +446,13 @@
   
     <div class="post-tags">
       
-        <a href="/tags/showntell" class="post-tag">Show&#39;n&#39;tell</a>
+        <a href="/tags/java" class="post-tag">java</a>
+      
+        <a href="/tags/orm" class="post-tag">ORM</a>
+      
+        <a href="/tags/jpql" class="post-tag">JPQL</a>
+      
+        <a href="/tags/database" class="post-tag">database</a>
       
     </div>
   
@@ -455,87 +461,130 @@
       </header>
 
       <div class="post-content-main">
-        <p>So, during the writing of my last blog post, I realised that I hadn&rsquo;t explained what my project is actually about and why I chose to build it, so today I want to dive into that.</p>
-<h1 id="why-i-chose-to-build-a-membership-system">Why I Chose to Build a Membership System</h1>
-<p>When choosing a project for this backend portfolio, I wanted to avoid building something purely academic.</p>
-<p>Instead of creating a system that only exists to satisfy a set of technical requirements, I wanted to work on something that:</p>
+        <h1 id="designing-the-backend-domain---jpa-relations-and-queries">Designing the Backend Domain - JPA, Relations, and Queries</h1>
+<p>This phase of the project has focused entirely on building a solid backend foundation using <strong>Java, JPA, Hibernate, and PostgreSQL</strong>.</p>
+<p>The goal was not to build features quickly, but to design a domain model and persistence layer that:</p>
 <ul>
-<li>solves a real problem</li>
-<li>feels realistic from a business perspective</li>
-<li>can grow over time alongside my skills</li>
+<li>reflects real-world relationships</li>
+<li>is easy to reason about</li>
+<li>can be extended safely as new technologies are introduced later in the semester</li>
 </ul>
-<p>That is how the idea of building a <strong>membership system</strong> was born.</p>
-<h2 id="a-real-world-problem">A real-world problem</h2>
-<p>The original idea came from a conversation with my brother, who owns a fitness center chain.</p>
-<p>He asked me if it would be possible to build a better membership system than the one they were currently using, because the existing solution was clunky, limited, and difficult to work with.</p>
-<p>That question immediately sparked my interest.</p>
-<p>Not because I thought I could instantly build a production-ready system, but because it presented:</p>
+<h2 id="domain-driven-database-design-with-jpa">Domain-driven database design with JPA</h2>
+<p>Instead of starting with SQL tables, I designed the system around <strong>domain concepts</strong>, letting JPA handle table creation and relationships.</p>
+<p>The core entities in the system are:</p>
 <ul>
-<li>a concrete use case</li>
-<li>real users</li>
-<li>real business needs</li>
-<li>and very real limitations in existing software</li>
+<li>Company</li>
+<li>User</li>
+<li>Membership</li>
+<li>MembershipType</li>
+<li>Location</li>
+<li>CheckIn</li>
 </ul>
-<h2 id="combining-school-and-reality">Combining school and reality</h2>
-<p>This project fits perfectly into the goals of the 3rd semester backend portfolio.</p>
-<p>It allows me to:</p>
+<p>Each entity maps directly to a database table using JPA annotations.</p>
+<p>This approach helped me think in <strong>objects and relationships</strong>, rather than rows and columns.</p>
+<h2 id="primary-keys-and-identity">Primary keys and identity</h2>
+<p>All entities use surrogate primary keys:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerationType</span><span class="p">.</span><span class="na">IDENTITY</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>Using generated IDs simplifies relationships and avoids coupling the domain model to business-specific identifiers.</p>
+<h2 id="foreign-keys-through-object-references">Foreign keys through object references</h2>
+<p>Instead of storing foreign key IDs manually, relationships are represented using object references.</p>
+<p>For example, each user belongs to a company:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@ManyToOne</span><span class="p">(</span><span class="n">optional</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="n">fetch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FetchType</span><span class="p">.</span><span class="na">LAZY</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@JoinColumn</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;company_id&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">nullable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">private</span><span class="w"> </span><span class="n">Company</span><span class="w"> </span><span class="n">company</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>This creates a foreign key in the database (company_id) while allowing the Java code to work with objects rather than IDs.</p>
+<p>Hibernate handles the translation automatically.</p>
+<p>This was a key learning point: well-designed object relationships drastically reduce boilerplate code.</p>
+<h2 id="separating-membership-data-from-users">Separating membership data from users</h2>
+<p>Rather than placing membership-related fields directly on the User entity, membership data is modeled as its own entity.</p>
+<p>A Membership represents a time-bound relationship between:</p>
 <ul>
-<li>practice core backend technologies</li>
-<li>work with realistic data models</li>
-<li>introduce complexity gradually</li>
-<li>and reflect on architectural decisions along the way</li>
+<li>a User</li>
+<li>a MembershipType</li>
 </ul>
-<p>At the same time, it gives me the freedom to think beyond the classroom.</p>
-<p>Even if this system never reaches production, the design decisions, mistakes, and lessons learned will be directly transferable to real-world backend development.</p>
-<h2 id="why-a-membership-system-works-well-as-a-backend-project">Why a membership system works well as a backend project</h2>
-<p>A membership system naturally includes many of the challenges that backend systems face in practice:</p>
+<p>It also includes:</p>
 <ul>
-<li>users with different roles</li>
-<li>ownership of data (companies vs users)</li>
-<li>time-based data (memberships)</li>
-<li>state transitions (active, cancelled, paused)</li>
-<li>business rules (who is allowed to check in, when, and where)</li>
+<li>startDate</li>
+<li>endDate</li>
+<li>a MembershipStatus enum</li>
 </ul>
-<p>This makes it an ideal foundation for:</p>
+<p>This design allows:</p>
 <ul>
-<li>JPA and relational modeling</li>
-<li>JPQL queries and joins</li>
-<li>service-layer business logic</li>
-<li>authentication and authorization</li>
-<li>validation and error handling</li>
+<li>membership history</li>
+<li>cancellations and pauses</li>
+<li>reactivation without data loss</li>
 </ul>
-<p>In other words, the problem space itself encourages good backend design.</p>
-<h2 id="building-something-that-can-evolve">Building something that can evolve</h2>
-<p>One of the most important reasons for choosing this project is that it is <strong>not finished by design</strong>.</p>
-<p>The system can grow naturally as new topics are introduced:</p>
+<p>Separating this logic early prevents destructive updates and keeps the model flexible.</p>
+<h2 id="enums-and-database-safety">Enums and database safety</h2>
+<p>Enums such as Role and MembershipStatus are stored using:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Enumerated</span><span class="p">(</span><span class="n">EnumType</span><span class="p">.</span><span class="na">STRING</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><p>Storing enums as strings:</p>
 <ul>
-<li>first persistence</li>
-<li>then services</li>
-<li>then APIs</li>
-<li>then security</li>
-<li>then deployment concerns</li>
+<li>improves database readability</li>
+<li>prevents bugs caused by enum reordering</li>
+<li>makes debugging and querying easier</li>
 </ul>
-<p>This mirrors how real software evolves over time.</p>
-<p>By sticking to the same domain throughout the semester, I can focus on learning <em>how systems grow</em>, not just how individual technologies work in isolation.</p>
-<h2 id="motivation-through-ownership">Motivation through ownership</h2>
-<p>There is also a strong motivational aspect to working on this project.</p>
-<p>Knowing that the system is based on a real business scenario:</p>
+<h2 id="dao-structure-and-responsibility">DAO structure and responsibility</h2>
+<p>Each entity has a corresponding DAO implementing a shared <code>IDAO&lt;T&gt;</code> interface, providing basic CRUD functionality.</p>
+<p>More complex queries are implemented as specific methods in the DAO where they logically belong.</p>
+<p>For example:</p>
 <ul>
-<li>makes design decisions feel meaningful</li>
-<li>encourages cleaner structure</li>
-<li>and makes it easier to stay engaged over time</li>
+<li>UserDAO handles user-related queries</li>
+<li>MembershipDAO handles membership-related business logic</li>
 </ul>
-<p>It no longer feels like “just another assignment”.</p>
-<p>It feels like something I <strong>own</strong>, improve, and understand more deeply with each iteration.</p>
-<h2 id="final-thoughts">Final thoughts</h2>
-<p>Choosing this project was ultimately about aligning learning goals with real-world relevance.</p>
-<p>By building a membership system, I get to:</p>
+<p>Even when a membership-related query returns User objects, it still belongs in MembershipDAO, because the definition of “active” depends on membership state.</p>
+<p>This separation keeps responsibilities clear and avoids bloated DAO classes.</p>
+<h2 id="jpql-and-joins">JPQL and joins</h2>
+<p>JPQL was used instead of raw SQL to query the database.</p>
+<p>JPQL operates on:</p>
 <ul>
-<li>practice backend fundamentals</li>
-<li>explore realistic architectural challenges</li>
-<li>and create something that could, one day, be used outside of a school setting</li>
+<li>entities</li>
+<li>fields</li>
+<li>relationships</li>
 </ul>
-<p>That combination makes this project both technically valuable and personally motivating, which is exactly what I wanted from this portfolio.</p>
+<p>Rather than tables and columns.
+Example: finding active members of a company</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">u</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="n">Membership</span><span class="w"> </span><span class="n">m</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">JOIN</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="k">user</span><span class="w"> </span><span class="n">u</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">WHERE</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">company</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">:</span><span class="n">companyId</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">:</span><span class="n">status</span><span class="w">
+</span></span></span></code></pre></div><p>This query:</p>
+<ul>
+<li>joins Membership and User</li>
+<li>filters by company</li>
+<li>filters by membership status</li>
+<li>returns users directly</li>
+</ul>
+<p>The use of DISTINCT ensures that users are not duplicated if multiple records exist.</p>
+<h2 id="managing-entity-state-with-jpa">Managing entity state with JPA</h2>
+<p>When creating or updating entities, related objects may be detached from the persistence context.</p>
+<p>To handle this safely, related entities are merged explicitly:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Company</span><span class="w"> </span><span class="n">managedCompany</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">em</span><span class="p">.</span><span class="na">merge</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">getCompany</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">user</span><span class="p">.</span><span class="na">setCompany</span><span class="p">(</span><span class="n">managedCompany</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>This ensures Hibernate works with managed entities and avoids persistence errors.</p>
+<p>Understanding managed vs detached entities was one of the more important lessons in this phase.</p>
+<h2 id="manual-integration-testing-via-main">Manual integration testing via Main</h2>
+<p>Before introducing automated tests, a Main class is used to manually test the persistence layer.</p>
+<p>This setup:</p>
+<ul>
+<li>creates realistic test data</li>
+<li>verifies entity mappings</li>
+<li>tests updates and deletes</li>
+<li>validates JPQL queries</li>
+</ul>
+<p>While not a replacement for proper testing, this approach provided valuable insight into how Hibernate behaves at runtime.</p>
+<h2 id="key-takeaways">Key takeaways</h2>
+<p>Some of the most important lessons from this phase:</p>
+<ul>
+<li>JPA relationships are easier to reason about than manual foreign keys</li>
+<li>A clean domain model simplifies queries and future features</li>
+<li>JPQL encourages domain-oriented thinking</li>
+<li>Correct planning of relations pays off immediately</li>
+</ul>
+<p>The current state of the backend provides a stable foundation for introducing service layers, validation, REST endpoints, and security in the next stages of the project.</p>
 
       </div>
 
@@ -544,7 +593,13 @@
           <div class="post-tags-footer">
             <span class="tags-label">Tags:</span>
             
-              <a href="/tags/showntell" class="post-tag">Show&#39;n&#39;tell</a>
+              <a href="/tags/java" class="post-tag">java</a>
+            
+              <a href="/tags/orm" class="post-tag">ORM</a>
+            
+              <a href="/tags/jpql" class="post-tag">JPQL</a>
+            
+              <a href="/tags/database" class="post-tag">database</a>
             
           </div>
         </footer>
@@ -562,14 +617,6 @@
           </a>
         
 
-        
-          <a
-            href="/posts/week2-backend-design/"
-            class="nav-link nav-next"
-            aria-label="Next post: Backend design - MORE CRUD!">
-            <span class="nav-label">Next</span>
-            <span class="nav-title">Backend design - MORE CRUD!</span>
-          </a>
         
       </nav>
     </article>
@@ -612,14 +659,18 @@
       <nav class="toc-nav" aria-label="Table of contents">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#why-i-chose-to-build-a-membership-system">Why I Chose to Build a Membership System</a>
+    <li><a href="#designing-the-backend-domain---jpa-relations-and-queries">Designing the Backend Domain - JPA, Relations, and Queries</a>
       <ul>
-        <li><a href="#a-real-world-problem">A real-world problem</a></li>
-        <li><a href="#combining-school-and-reality">Combining school and reality</a></li>
-        <li><a href="#why-a-membership-system-works-well-as-a-backend-project">Why a membership system works well as a backend project</a></li>
-        <li><a href="#building-something-that-can-evolve">Building something that can evolve</a></li>
-        <li><a href="#motivation-through-ownership">Motivation through ownership</a></li>
-        <li><a href="#final-thoughts">Final thoughts</a></li>
+        <li><a href="#domain-driven-database-design-with-jpa">Domain-driven database design with JPA</a></li>
+        <li><a href="#primary-keys-and-identity">Primary keys and identity</a></li>
+        <li><a href="#foreign-keys-through-object-references">Foreign keys through object references</a></li>
+        <li><a href="#separating-membership-data-from-users">Separating membership data from users</a></li>
+        <li><a href="#enums-and-database-safety">Enums and database safety</a></li>
+        <li><a href="#dao-structure-and-responsibility">DAO structure and responsibility</a></li>
+        <li><a href="#jpql-and-joins">JPQL and joins</a></li>
+        <li><a href="#managing-entity-state-with-jpa">Managing entity state with JPA</a></li>
+        <li><a href="#manual-integration-testing-via-main">Manual integration testing via Main</a></li>
+        <li><a href="#key-takeaways">Key takeaways</a></li>
       </ul>
     </li>
   </ul>
