@@ -1,7 +1,7 @@
 +++
 date = '2026-02-15T14:14:59+01:00'
 draft = false
-title = 'How we are doing now - week 2'
+title = 'Backend design - MORE CRUD!'
 tags = ["java", "ORM", "JPQL", "database"]
 author = 'Toby Alexander West Mietke Hartzberg'
 +++
@@ -96,7 +96,7 @@ Storing enums as strings:
 
 ## DAO structure and responsibility
 
-Each entity has a corresponding DAO implementing a shared IDAO<T> interface, providing basic CRUD functionality.
+Each entity has a corresponding DAO implementing a shared ```IDAO<T>``` interface, providing basic CRUD functionality.
 
 More complex queries are implemented as specific methods in the DAO where they logically belong.
 
