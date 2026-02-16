@@ -47,11 +47,6 @@ theme = 'mana'
   weight = 30
 
 [[menus.main]]
-  name = 'Projects'
-  url = '/projects/'
-  weight = 40
-
-[[menus.main]]
   name = 'About'
   url = '/about/'
   weight = 50
