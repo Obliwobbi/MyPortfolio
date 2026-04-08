@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jwt on Tobys Portfolio</title>
+    <link>http://localhost:1313/tags/jwt/</link>
+    <description>Recent content in Jwt on Tobys Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Mar 2026 14:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/jwt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Security - Protecting the Backend</title>
+      <link>http://localhost:1313/posts/week7-security/</link>
+      <pubDate>Sun, 15 Mar 2026 14:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/week7-security/</guid>
+      <description>&lt;h1 id=&#34;security---protecting-the-backend&#34;&gt;Security - Protecting the Backend&lt;/h1&gt;&#xA;&lt;p&gt;This week focused on something that is easy to overlook early in development, but absolutely critical in real systems: &lt;strong&gt;security&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;While the previous week introduced authentication and testing, this week was about stepping back and understanding:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;why security matters&lt;/li&gt;&#xA;&lt;li&gt;what can go wrong&lt;/li&gt;&#xA;&lt;li&gt;and how to design systems that are harder to break&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;from-functionality-to-responsibility&#34;&gt;From functionality to responsibility&lt;/h2&gt;&#xA;&lt;p&gt;Up until this point, my focus had mostly been:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>REST and Test - From Endpoints to Confidence</title>
+      <link>http://localhost:1313/posts/week6-rest-and-test/</link>
+      <pubDate>Sun, 08 Mar 2026 14:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/week6-rest-and-test/</guid>
+      <description>&lt;h1 id=&#34;rest-and-test---from-endpoints-to-confidence&#34;&gt;REST and Test - From Endpoints to Confidence&lt;/h1&gt;&#xA;&lt;p&gt;This week was where things started to get more serious.&lt;/p&gt;&#xA;&lt;p&gt;Up until now, I had built endpoints that &lt;em&gt;worked&lt;/em&gt;, but I had no real guarantee that they would continue working as the system evolved.&lt;/p&gt;&#xA;&lt;p&gt;This week introduced:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;automated testing&lt;/li&gt;&#xA;&lt;li&gt;authentication&lt;/li&gt;&#xA;&lt;li&gt;and a much deeper understanding of how a backend should behave&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;from-it-works-to-it-is-reliable&#34;&gt;From “it works” to “it is reliable”&lt;/h2&gt;&#xA;&lt;p&gt;Before this week, my workflow was very simple:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

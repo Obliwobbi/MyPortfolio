@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Testing on Tobys Portfolio</title>
+    <link>http://localhost:1313/tags/testing/</link>
+    <description>Recent content in Testing on Tobys Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 08 Mar 2026 14:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>REST and Test - From Endpoints to Confidence</title>
+      <link>http://localhost:1313/posts/week6-rest-and-test/</link>
+      <pubDate>Sun, 08 Mar 2026 14:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/week6-rest-and-test/</guid>
+      <description>&lt;h1 id=&#34;rest-and-test---from-endpoints-to-confidence&#34;&gt;REST and Test - From Endpoints to Confidence&lt;/h1&gt;&#xA;&lt;p&gt;This week was where things started to get more serious.&lt;/p&gt;&#xA;&lt;p&gt;Up until now, I had built endpoints that &lt;em&gt;worked&lt;/em&gt;, but I had no real guarantee that they would continue working as the system evolved.&lt;/p&gt;&#xA;&lt;p&gt;This week introduced:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;automated testing&lt;/li&gt;&#xA;&lt;li&gt;authentication&lt;/li&gt;&#xA;&lt;li&gt;and a much deeper understanding of how a backend should behave&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;from-it-works-to-it-is-reliable&#34;&gt;From “it works” to “it is reliable”&lt;/h2&gt;&#xA;&lt;p&gt;Before this week, my workflow was very simple:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
