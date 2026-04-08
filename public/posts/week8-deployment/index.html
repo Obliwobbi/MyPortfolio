@@ -1,0 +1,901 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+  class="h-full">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="en-us">
+<script>
+  
+  (function () {
+    const storedTheme = localStorage.getItem("theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const theme = storedTheme || (systemPrefersLight ? "light" : "dark");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<title>Deployment - From Local Development to Production | Tobys Portfolio</title>
+<meta
+  name="description"
+  content="
+    Deployment - From Local Development to Production This week was where everything came together, and also where everything broke.
+Up until this point, the system …
+  
+  ">
+
+
+  <meta name="keywords" content="java, docker, deployment, ci/cd, devops">
+
+
+
+  <meta name="author" content="Toby Alexander West Mietke Hartzberg">
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/week8-deployment/">
+
+<meta name="robots" content="index, follow">
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deployment - From Local Development to Production | Tobys Portfolio">
+<meta property="og:description" content="Deployment - From Local Development to Production This week was where everything came together, and also where everything broke.
+Up until this point, the system …">
+<meta property="og:url" content="http://localhost:1313/posts/week8-deployment/">
+<meta property="og:site_name" content="Tobys Portfolio"><meta property="article:published_time" content="2026-04-08T01:00:00&#43;01:00">
+  <meta
+    property="article:modified_time"
+    content="2026-04-08T01:00:00&#43;01:00"><meta property="article:author" content="Toby Alexander West Mietke Hartzberg"><meta property="article:section" content="java"><meta property="article:tag" content="java"><meta property="article:tag" content="docker"><meta property="article:tag" content="deployment"><meta property="article:tag" content="ci/cd"><meta property="article:tag" content="devops">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Deployment - From Local Development to Production | Tobys Portfolio">
+<meta name="twitter:description" content="Deployment - From Local Development to Production This week was where everything came together, and also where everything broke.
+Up until this point, the system …">
+
+<script type="application/ld+json">
+
+
+
+
+
+
+
+
+
+
+"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"Toby Alexander West Mietke Hartzberg\"},\"dateModified\":\"2026-04-08T01:00:00+01:00\",\"datePublished\":\"2026-04-08T01:00:00+01:00\",\"description\":\"Deployment - From Local Development to Production This week was where everything came together, and also where everything broke.\\nUp until this point, the system …\",\"headline\":\"Deployment - From Local Development to Production\",\"image\":null,\"keywords\":[\"java\",\"docker\",\"deployment\",\"ci/cd\",\"devops\"],\"mainEntityOfPage\":{\"@id\":\"http://localhost:1313/posts/week8-deployment/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":null},\"name\":\"Tobys Portfolio\"}}"</script>
+
+
+
+  
+  
+  
+    
+  
+  
+<script type="application/ld+json">"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/\",\"name\":\"Tobys Portfolio\",\"position\":1},{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/posts/\",\"name\":\"Posts\",\"position\":2},{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/posts/week8-deployment/\",\"name\":\"Deployment - From Local Development to Production\",\"position\":3}]}"</script>
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+  rel="stylesheet">
+
+
+<link
+  rel="stylesheet"
+  href="/css/theme.min.a251f6659747f13720004e758411b578202d6d8c8dd101f6d21a21fb1bb104b2.css"
+  integrity="sha256-olH2ZZdH8TcgAE51hBG1eCAtbYyN0QH20hoh&#43;xuxBLI=">
+
+<link
+    rel="stylesheet"
+    href="/css/syntax-dark.min.b01037e5609e6260b74d6fcdd6d5131e8dcbc4d46d6ef4bfbe5a60bdfc1a9f30.css"
+    integrity="sha256-sBA35WCeYmC3TW/N1tUTHo3LxNRtbvS/vlpgvfwanzA="
+    id="syntax-dark-theme"
+    class="syntax-theme"><link
+    rel="stylesheet"
+    href="/css/syntax-light.min.9602bc2fcef52b4c62e05eae14b48ba428e114f116e993e504d83ed5a3aeda98.css"
+    integrity="sha256-lgK8L871K0xi4F6uFLSLpCjhFPEW6ZPlBNg&#43;1aOu2pg="
+    id="syntax-light-theme"
+    class="syntax-theme"
+    disabled><script>
+  
+  (function () {
+    const storedTheme = localStorage.getItem("theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const theme = storedTheme || (systemPrefersLight ? "light" : "dark");
+
+    const syntaxDark = document.getElementById("syntax-dark-theme");
+    const syntaxLight = document.getElementById("syntax-light-theme");
+
+    if (theme === "light") {
+      if (syntaxDark) syntaxDark.disabled = true;
+      if (syntaxLight) syntaxLight.disabled = false;
+    } else {
+      if (syntaxDark) syntaxDark.disabled = false;
+      if (syntaxLight) syntaxLight.disabled = true;
+    }
+
+    
+    const observer = new MutationObserver(() => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      if (currentTheme === "light") {
+        if (syntaxDark) syntaxDark.disabled = true;
+        if (syntaxLight) syntaxLight.disabled = false;
+      } else {
+        if (syntaxDark) syntaxDark.disabled = false;
+        if (syntaxLight) syntaxLight.disabled = true;
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  })();
+</script>
+
+
+
+
+<link
+  rel="stylesheet"
+  href="/css/bundle.min.d430be27649a3685c7891f7076e3e50f97bf39aabb96c243b89902f3dc6c9ead.css"
+  integrity="sha256-1DC&#43;J2SaNoXHiR9wduPlD5e/Oaq7lsJDuJkC89xsnq0=">
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/logo-transparent/favicon-32x32.png">
+
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/logo-transparent/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/logo-transparent/apple-touch-icon.png">
+<link
+  rel="icon"
+  type="image/png"
+  sizes="192x192"
+  href="/favicon/logo-transparent/android-chrome-192x192.png">
+<link
+  rel="icon"
+  type="image/png"
+  sizes="512x512"
+  href="/favicon/logo-transparent/android-chrome-512x512.png">
+<link rel="manifest" href="/favicon/logo-transparent/site.webmanifest">
+
+
+
+
+  
+
+
+
+
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <a href="#main-content" class="skip-to-main" aria-label="Skip to main content"
+      >Skip to main content</a
+    >
+    <header class="sticky-header">
+      <div class="header-container">
+        <nav class="header-nav" role="navigation" aria-label="Main navigation">
+  <div class="header-content">
+    <div class="header-logo">
+      <a href="/" class="logo-link" aria-label="Home - Tobys Portfolio">
+        Tobys Portfolio
+      </a>
+    </div>
+
+    
+    <button 
+      id="mobile-menu-toggle" 
+      class="mobile-menu-toggle" 
+      aria-label="Toggle menu" 
+      aria-expanded="false"
+      type="button">
+      <span class="hamburger-icon">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </span>
+    </button>
+
+    <div class="header-menu">
+      <ul class="menu-list">
+  
+    <li class="menu-item">
+      <a
+        href="/"
+        class="menu-link ">
+        Home
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/posts/"
+        class="menu-link ">
+        Posts
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/tags/"
+        class="menu-link ">
+        Tags
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/about/"
+        class="menu-link ">
+        About
+      </a>
+    </li>
+  
+</ul>
+
+
+      <button id="search-toggle" class="search-toggle" aria-label="Search" type="button">
+        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </button>
+
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
+  <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+  </svg>
+  <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+  </svg>
+</button>
+
+    </div>
+  </div>
+
+  
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-title">Menu</span>
+        <button 
+          id="mobile-menu-close" 
+          class="mobile-menu-close" 
+          aria-label="Close menu" 
+          type="button">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav" role="navigation" aria-label="Mobile navigation">
+        <ul class="menu-list">
+  
+    <li class="menu-item">
+      <a
+        href="/"
+        class="menu-link ">
+        Home
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/posts/"
+        class="menu-link ">
+        Posts
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/tags/"
+        class="menu-link ">
+        Tags
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/about/"
+        class="menu-link ">
+        About
+      </a>
+    </li>
+  
+</ul>
+
+      </nav>
+      <div class="mobile-menu-footer">
+        <button id="mobile-search-toggle" class="mobile-search-toggle" aria-label="Search" type="button">
+          <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <span>Search</span>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle theme" type="button">
+          <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+      </div>
+    </header>
+
+    <main id="main-content" class="flex-1" role="main">
+      
+  <div class="single-post-wrapper">
+    <article class="single-post">
+      
+
+
+
+
+
+
+
+      <header class="post-header">
+        <h1 class="post-title-main">Deployment - From Local Development to Production</h1>
+
+        
+
+        <div class="post-meta">
+  <div class="post-meta-info">
+    <time datetime="2026-04-08T01:00:00&#43;01:00" class="post-date">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+      </svg>
+      April 8, 2026
+    </time>
+
+    <span class="meta-separator">•</span>
+
+    
+      <span class="post-word-count">
+        <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        805 words
+      </span>
+    
+
+    
+      <span class="meta-separator">•</span>
+      <span class="post-reading-time">
+        <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        4 min
+      </span>
+    
+  </div>
+
+  
+    <div class="post-tags">
+      
+        <a href="/tags/java" class="post-tag">java</a>
+      
+        <a href="/tags/docker" class="post-tag">docker</a>
+      
+        <a href="/tags/deployment" class="post-tag">deployment</a>
+      
+        <a href="/tags/ci/cd" class="post-tag">ci/cd</a>
+      
+        <a href="/tags/devops" class="post-tag">devops</a>
+      
+    </div>
+  
+</div>
+
+      </header>
+
+      <div class="post-content-main">
+        <h1 id="deployment---from-local-development-to-production">Deployment - From Local Development to Production</h1>
+<p>This week was where everything came together, and also where everything broke.</p>
+<p>Up until this point, the system had only existed locally on my machine.<br>
+This week was about getting it running in a real environment, accessible through a domain.</p>
+<p>That meant dealing with:</p>
+<ul>
+<li>Docker</li>
+<li>CI/CD (Continious Integration / Continious Deployment)</li>
+<li>environment variables</li>
+<li>networking</li>
+<li>and a lot of debugging</li>
+</ul>
+<h2 id="from-local-to-deployed-system">From local to deployed system</h2>
+<p>Locally, everything worked:</p>
+<ul>
+<li>database connection</li>
+<li>API endpoints</li>
+<li>authentication</li>
+<li>testing</li>
+</ul>
+<p>But deployment introduced a completely new layer of complexity.</p>
+<p>Suddenly, I had to think about:</p>
+<ul>
+<li>how the application is packaged</li>
+<li>how it runs in a container</li>
+<li>how it connects to other services</li>
+<li>how it is accessed externally</li>
+</ul>
+<h2 id="deployment-setup">Deployment setup</h2>
+<p>The deployment process consisted of several steps:</p>
+<ol>
+<li>
+<p><strong>Build the application</strong></p>
+<ul>
+<li>Maven builds a fat JAR using the shade plugin</li>
+</ul>
+</li>
+<li>
+<p><strong>Create a Docker image</strong></p>
+<ul>
+<li>The JAR is packaged inside a container</li>
+<li>The application is configured to run on a specific port</li>
+</ul>
+</li>
+<li>
+<p><strong>Push the image to Docker Hub</strong></p>
+<ul>
+<li>GitHub Actions builds and pushes the image automatically on push</li>
+</ul>
+</li>
+<li>
+<p><strong>Run the container on a Digital Ocean droplet</strong></p>
+<ul>
+<li>Docker Compose is used to run the application together with PostgreSQL</li>
+</ul>
+</li>
+<li>
+<p><strong>Expose the application through a domain</strong></p>
+<ul>
+<li>Caddy is used as a reverse proxy</li>
+<li>The API is available at:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/api/v1
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Automatic updates</strong></p>
+<ul>
+<li>Watchtower monitors for new Docker images</li>
+<li>Automatically pulls and restarts the container when a new version is available</li>
+</ul>
+</li>
+</ol>
+<p>This pipeline allowed me to go from:</p>
+
+
+
+
+
+
+
+
+<blockquote class="blockquote-regular">
+  <p>pushing code &gt; to having a running system online</p>
+
+</blockquote>
+<h2 id="challenges-and-debugging">Challenges and debugging</h2>
+<p>This week involved a lot of trial and error.</p>
+<h3 id="application-not-starting">Application not starting</h3>
+<p>At one point, the application kept restarting in a loop.</p>
+<p>The issue turned out to be:</p>
+<ul>
+<li>a database constraint violation</li>
+<li>caused by my bootstrap logic inserting duplicate data</li>
+</ul>
+<p>Because the container restarted automatically, the error repeated continuously.</p>
+<p>This made it harder to debug, but also taught me how important it is to:</p>
+<ul>
+<li>read logs carefully</li>
+<li>understand startup behavior</li>
+</ul>
+<hr>
+<h3 id="configuration-issues">Configuration issues</h3>
+<p>One of the biggest challenges was configuration.</p>
+<p>Problems included:</p>
+<ul>
+<li>environment variables missing in Docker</li>
+<li>config files not being loaded inside the container</li>
+<li>differences between local and deployed setup</li>
+</ul>
+<p>A specific issue was:</p>
+<ul>
+<li>password not loading correctly from config</li>
+<li>which caused login to fail even though the user existed</li>
+</ul>
+<p>This forced me to rethink how configuration should be handled.</p>
+<p>The solution was to rely on environment variables instead of local files.</p>
+<hr>
+<h3 id="cicd-and-failing-tests">CI/CD and failing tests</h3>
+<p>Before deployment could work, the CI pipeline had to pass.</p>
+<p>I ran into issues where:</p>
+<ul>
+<li>tests failed in GitHub Actions but worked locally</li>
+<li>configuration was missing in the CI environment</li>
+</ul>
+<p>This required:</p>
+<ul>
+<li>setting up a test database in the workflow</li>
+<li>ensuring environment variables were available during tests</li>
+</ul>
+<p>This was one of the more frustrating parts, but also one of the most valuable.</p>
+<hr>
+<h3 id="private-docker-repository-issues">Private Docker repository issues</h3>
+<p>Another issue was related to Docker Hub.</p>
+<p>Since the repository was private:</p>
+<ul>
+<li>the server could not pull the image initially</li>
+<li>resulting in errors like:
+<ul>
+<li>access denied</li>
+<li>repository not found</li>
+</ul>
+</li>
+</ul>
+<p>The solution was to:</p>
+<ul>
+<li>log in to Docker Hub on the server</li>
+<li>ensure credentials were available for pulling images</li>
+</ul>
+<hr>
+<h3 id="watchtower-and-automatic-updates">Watchtower and automatic updates</h3>
+<p>Setting up Watchtower also introduced some issues.</p>
+<p>At first:</p>
+<ul>
+<li>it could not pull images due to missing authentication</li>
+<li>it attempted to update containers that were not accessible</li>
+</ul>
+<p>This was due to not having the correct root folder in the watchtower config. <br> Documentation said &ldquo;/root/.docker/&hellip;&rdquo;, but mine should be &ldquo;/home/{user}&rdquo;</p>
+<p>Once configured correctly, it worked as intended:</p>
+<ul>
+<li>detected new images</li>
+<li>restarted the container automatically</li>
+</ul>
+<p>This made deployment much smoother.</p>
+<hr>
+<h3 id="networking-and-reverse-proxy">Networking and reverse proxy</h3>
+<p>Another challenge was getting the application accessible through the domain.</p>
+<p>Issues included:</p>
+<ul>
+<li>connection refused errors</li>
+<li>incorrect ports</li>
+<li>containers not being reachable</li>
+</ul>
+<p>This required:</p>
+<ul>
+<li>matching internal container ports with external ports</li>
+<li>configuring Caddy correctly</li>
+<li>verifying that the application was actually running</li>
+</ul>
+<hr>
+<h2 id="what-i-learned">What I learned</h2>
+<p>This week taught me more than any other part of the project.</p>
+<p>Some key lessons:</p>
+<ul>
+<li>A system that works locally can still fail completely in production</li>
+<li>Configuration is one of the hardest parts of deployment</li>
+<li>Logs are essential for debugging</li>
+<li>Docker simplifies deployment, but introduces its own complexity</li>
+<li>CI/CD pipelines require a stable and testable setup</li>
+<li>Small mistakes (&quot;<em>cough</em>&quot; .. <em>like missing environment variables</em> .. &ldquo;<em>cough</em>&rdquo;) can break everything</li>
+</ul>
+<h2 id="final-result">Final result</h2>
+<p>At the end of this process, I had:</p>
+<ul>
+<li>a running backend deployed on a server</li>
+<li>a domain pointing to the application</li>
+<li>a CI/CD pipeline building and pushing images</li>
+<li>automatic updates using Watchtower</li>
+</ul>
+<p>The API is now accessible externally and behaves as expected.</p>
+<h2 id="key-takeaways">Key takeaways</h2>
+<p>This week taught me that:</p>
+<ul>
+<li>deployment is not just a final step, it is a separate discipline</li>
+<li>real-world systems require more than just code</li>
+<li>debugging in production is very different from local debugging</li>
+<li>automation (CI/CD) is extremely powerful when it works</li>
+</ul>
+<p>This was the week where the project went from being “just code”<br>
+to becoming a <strong>real deployed system</strong>.</p>
+
+      </div>
+
+      
+        <footer class="post-footer">
+          <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            
+              <a href="/tags/java" class="post-tag">java</a>
+            
+              <a href="/tags/docker" class="post-tag">docker</a>
+            
+              <a href="/tags/deployment" class="post-tag">deployment</a>
+            
+              <a href="/tags/ci/cd" class="post-tag">ci/cd</a>
+            
+              <a href="/tags/devops" class="post-tag">devops</a>
+            
+          </div>
+        </footer>
+      
+
+
+      <nav class="post-navigation" aria-label="Post navigation">
+        
+          <a
+            href="/posts/week7-security/"
+            class="nav-link nav-prev"
+            aria-label="Previous post: Security - Protecting the Backend">
+            <span class="nav-label">Previous</span>
+            <span class="nav-title">Security - Protecting the Backend</span>
+          </a>
+        
+
+        
+          <a
+            href="/posts/video/"
+            class="nav-link nav-next"
+            aria-label="Next post: Video">
+            <span class="nav-label">Next</span>
+            <span class="nav-title">Video</span>
+          </a>
+        
+      </nav>
+    </article>
+
+    
+  <aside class="post-toc" id="post-toc" aria-label="Table of contents">
+    <button
+      class="toc-toggle"
+      id="toc-toggle"
+      aria-expanded="true"
+      aria-controls="toc-content"
+      aria-label="Toggle table of contents">
+      <svg
+        class="toc-burger-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <span class="toc-toggle-text">Table of Contents</span>
+      <svg
+        class="toc-chevron-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+    <div class="toc-content" id="toc-content">
+      <nav class="toc-nav" aria-label="Table of contents">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#deployment---from-local-development-to-production">Deployment - From Local Development to Production</a>
+      <ul>
+        <li><a href="#from-local-to-deployed-system">From local to deployed system</a></li>
+        <li><a href="#deployment-setup">Deployment setup</a></li>
+        <li><a href="#challenges-and-debugging">Challenges and debugging</a>
+          <ul>
+            <li><a href="#application-not-starting">Application not starting</a></li>
+            <li><a href="#configuration-issues">Configuration issues</a></li>
+            <li><a href="#cicd-and-failing-tests">CI/CD and failing tests</a></li>
+            <li><a href="#private-docker-repository-issues">Private Docker repository issues</a></li>
+            <li><a href="#watchtower-and-automatic-updates">Watchtower and automatic updates</a></li>
+            <li><a href="#networking-and-reverse-proxy">Networking and reverse proxy</a></li>
+          </ul>
+        </li>
+        <li><a href="#what-i-learned">What I learned</a></li>
+        <li><a href="#final-result">Final result</a></li>
+        <li><a href="#key-takeaways">Key takeaways</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </nav>
+    </div>
+  </aside>
+
+
+  </div>
+
+    </main>
+
+    <footer>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <p class="footer-text">
+      &copy;
+      
+      2026
+      
+      Tobys Portfolio.
+      
+        Built with Hugo and Mana theme
+      
+    </p>
+    
+      <div class="footer-social">
+        <div class="social-links">
+  
+    <a
+      href="https://github.com/Obliwobbi"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-link"
+      aria-label="GitHub">
+      <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill-rule="evenodd"
+          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </a>
+  
+
+  
+    <a
+      href="https://www.linkedin.com/in/tahartzberg"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-link"
+      aria-label="LinkedIn">
+      <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+      </svg>
+    </a>
+  
+
+  
+</div>
+
+      </div>
+    
+  </div>
+</footer>
+
+    </footer>
+
+    <div id="search-modal" class="search-modal" aria-hidden="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop" id="search-modal-backdrop"></div>
+  <div class="search-modal-container">
+    <div class="search-input-wrapper">
+      <svg class="search-input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+      <input
+        type="search"
+        id="search-input"
+        class="search-input"
+        placeholder="Search..."
+        autocomplete="off"
+        aria-label="Search input">
+      <button class="search-input-clear" id="search-input-clear" aria-label="Clear search">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+        </svg>
+      </button>
+      <button class="search-modal-close" id="search-modal-close" aria-label="Close search">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+</div>
+
+    
+
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" type="button">
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+  </svg>
+</button>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.cdc6a3c4f498c0556bc507848c493a55af2da9b14233c21300b240b89857180d.js" defer></script>
+
+  </body>
+</html>

@@ -16,11 +16,18 @@
       <description>&lt;h1 id=&#34;here-i-will-put-a-link-to-show-an-overview-of-my-project&#34;&gt;Here I will put a link to show an overview of my project&lt;/h1&gt;&#xA;&lt;h2 id=&#34;stay-tuned&#34;&gt;Stay tuned!&lt;/h2&gt;</description>
     </item>
     <item>
+      <title>Deployment - From Local Development to Production</title>
+      <link>http://localhost:1313/posts/week8-deployment/</link>
+      <pubDate>Wed, 08 Apr 2026 01:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/week8-deployment/</guid>
+      <description>&lt;h1 id=&#34;deployment---from-local-development-to-production&#34;&gt;Deployment - From Local Development to Production&lt;/h1&gt;&#xA;&lt;p&gt;This week was where everything came together, and also where everything broke.&lt;/p&gt;&#xA;&lt;p&gt;Up until this point, the system had only existed locally on my machine.&lt;br&gt;&#xA;This week was about getting it running in a real environment, accessible through a domain.&lt;/p&gt;&#xA;&lt;p&gt;That meant dealing with:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Docker&lt;/li&gt;&#xA;&lt;li&gt;CI/CD (Continious Integration / Continious Deployment)&lt;/li&gt;&#xA;&lt;li&gt;environment variables&lt;/li&gt;&#xA;&lt;li&gt;networking&lt;/li&gt;&#xA;&lt;li&gt;and a lot of debugging&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;from-local-to-deployed-system&#34;&gt;From local to deployed system&lt;/h2&gt;&#xA;&lt;p&gt;Locally, everything worked:&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Security - Protecting the Backend</title>
       <link>http://localhost:1313/posts/week7-security/</link>
       <pubDate>Sun, 15 Mar 2026 14:00:00 +0100</pubDate>
       <guid>http://localhost:1313/posts/week7-security/</guid>
-      <description>&lt;h1 id=&#34;security---protecting-the-backend&#34;&gt;Security - Protecting the Backend&lt;/h1&gt;&#xA;&lt;p&gt;This week focused on something that is easy to overlook early in development, but absolutely critical in real systems: &lt;strong&gt;security&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;While the previous week introduced authentication and testing, this week was about stepping back and understanding:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;why security matters&lt;/li&gt;&#xA;&lt;li&gt;what can go wrong&lt;/li&gt;&#xA;&lt;li&gt;and how to design systems that are harder to break&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;from-functionality-to-responsibility&#34;&gt;From functionality to responsibility&lt;/h2&gt;&#xA;&lt;p&gt;Up until this point, my focus had mostly been:&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;security---protecting-the-backend&#34;&gt;Security - Protecting the Backend&lt;/h1&gt;&#xA;&lt;p&gt;This week focused on something that is easy to overlook early in development, but absolutely critical in real systems: &lt;strong&gt;security&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;While the previous week introduced authentication and testing, this week was about understanding how to properly protect the backend.&lt;/p&gt;&#xA;&lt;h2 id=&#34;from-functionality-to-responsibility&#34;&gt;From functionality to responsibility&lt;/h2&gt;&#xA;&lt;p&gt;Up until this point, my focus had mostly been:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;making endpoints work&lt;/li&gt;&#xA;&lt;li&gt;returning correct data&lt;/li&gt;&#xA;&lt;li&gt;structuring the backend properly&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;But this week introduced a different perspective:&lt;/p&gt;</description>
     </item>
     <item>
       <title>REST and Test - From Endpoints to Confidence</title>
