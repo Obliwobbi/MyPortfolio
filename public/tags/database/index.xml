@@ -15,12 +15,5 @@
       <guid>http://localhost:1313/posts/week2-backend-design/</guid>
       <description>&lt;h1 id=&#34;designing-the-backend-domain---jpa-relations-and-queries&#34;&gt;Designing the Backend Domain - JPA, Relations, and Queries&lt;/h1&gt;&#xA;&lt;p&gt;This phase of the project has focused entirely on building a solid backend foundation using &lt;strong&gt;Java, JPA, Hibernate, and PostgreSQL&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The goal was not to build features quickly, but to design a domain model and persistence layer that:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;reflects real-world relationships&lt;/li&gt;&#xA;&lt;li&gt;is easy to reason about&lt;/li&gt;&#xA;&lt;li&gt;can be extended safely as new technologies are introduced later in the semester&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;domain-driven-database-design-with-jpa&#34;&gt;Domain-driven database design with JPA&lt;/h2&gt;&#xA;&lt;p&gt;Instead of starting with SQL tables, I designed the system around &lt;strong&gt;domain concepts&lt;/strong&gt;, letting JPA handle table creation and relationships.&lt;/p&gt;</description>
     </item>
-    <item>
-      <title>The Beginning of My Project: Member Systems</title>
-      <link>http://localhost:1313/posts/the-beginning/</link>
-      <pubDate>Thu, 05 Feb 2026 16:48:43 +0100</pubDate>
-      <guid>http://localhost:1313/posts/the-beginning/</guid>
-      <description>&lt;h1 id=&#34;portfolio-project&#34;&gt;Portfolio Project&lt;/h1&gt;&#xA;&lt;p&gt;So, during the writing of my last blog post, I realised that I hadn&amp;rsquo;t explained what my project is actually about, so today I want to dive into that.&lt;/p&gt;&#xA;&lt;h2 id=&#34;member-system&#34;&gt;Member System&lt;/h2&gt;</description>
-    </item>
   </channel>
 </rss>

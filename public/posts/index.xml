@@ -6,21 +6,35 @@
     <description>Recent content in Posts on Tobys Portfolio</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Feb 2026 14:14:59 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 08 Apr 2026 11:23:06 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Video</title>
+      <link>http://localhost:1313/posts/video/</link>
+      <pubDate>Wed, 08 Apr 2026 11:23:06 +0200</pubDate>
+      <guid>http://localhost:1313/posts/video/</guid>
+      <description>&lt;h1 id=&#34;here-i-will-put-a-link-to-show-an-overview-of-my-project&#34;&gt;Here I will put a link to show an overview of my project&lt;/h1&gt;&#xA;&lt;h2 id=&#34;stay-tuned&#34;&gt;Stay tuned!&lt;/h2&gt;</description>
+    </item>
+    <item>
+      <title>Data Integration - External APIs</title>
+      <link>http://localhost:1313/posts/week4-data-integration/</link>
+      <pubDate>Sun, 22 Feb 2026 14:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/week4-data-integration/</guid>
+      <description>&lt;h1 id=&#34;data-integration---working-with-external-apis&#34;&gt;Data Integration - Working with External APIs&lt;/h1&gt;&#xA;&lt;p&gt;This week focused on integrating external data sources into the backend system.&lt;/p&gt;&#xA;&lt;p&gt;The goal was to understand how a backend application can communicate with third-party APIs, consume data, and integrate it into an existing domain model.&lt;/p&gt;&#xA;&lt;h2 id=&#34;understanding-external-apis&#34;&gt;Understanding external APIs&lt;/h2&gt;&#xA;&lt;p&gt;Before implementing anything, I spent time understanding how APIs work in practice:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;HTTP requests (GET, POST)&lt;/li&gt;&#xA;&lt;li&gt;JSON as the standard data format&lt;/li&gt;&#xA;&lt;li&gt;endpoints and query parameters&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This was a shift from working purely with internal systems to interacting with external services.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Why a Member System?</title>
+      <link>http://localhost:1313/posts/the-beginning/</link>
+      <pubDate>Sun, 15 Feb 2026 14:15:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/the-beginning/</guid>
+      <description>&lt;p&gt;So, during the writing of my last blog post, I realised that I hadn&amp;rsquo;t explained what my project is actually about and why I chose to build it, so today I want to dive into that.&lt;/p&gt;&#xA;&lt;h1 id=&#34;why-i-chose-to-build-a-membership-system&#34;&gt;Why I Chose to Build a Membership System&lt;/h1&gt;&#xA;&lt;p&gt;When choosing a project for this backend portfolio, I wanted to avoid building something purely academic.&lt;/p&gt;&#xA;&lt;p&gt;Instead of creating a system that only exists to satisfy a set of technical requirements, I wanted to work on something that:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Backend design - MORE CRUD!</title>
       <link>http://localhost:1313/posts/week2-backend-design/</link>
       <pubDate>Sun, 15 Feb 2026 14:14:59 +0100</pubDate>
       <guid>http://localhost:1313/posts/week2-backend-design/</guid>
       <description>&lt;h1 id=&#34;designing-the-backend-domain---jpa-relations-and-queries&#34;&gt;Designing the Backend Domain - JPA, Relations, and Queries&lt;/h1&gt;&#xA;&lt;p&gt;This phase of the project has focused entirely on building a solid backend foundation using &lt;strong&gt;Java, JPA, Hibernate, and PostgreSQL&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The goal was not to build features quickly, but to design a domain model and persistence layer that:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;reflects real-world relationships&lt;/li&gt;&#xA;&lt;li&gt;is easy to reason about&lt;/li&gt;&#xA;&lt;li&gt;can be extended safely as new technologies are introduced later in the semester&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;domain-driven-database-design-with-jpa&#34;&gt;Domain-driven database design with JPA&lt;/h2&gt;&#xA;&lt;p&gt;Instead of starting with SQL tables, I designed the system around &lt;strong&gt;domain concepts&lt;/strong&gt;, letting JPA handle table creation and relationships.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Why a Member System?</title>
-      <link>http://localhost:1313/posts/the-beginning/</link>
-      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/the-beginning/</guid>
-      <description>&lt;p&gt;So, during the writing of my last blog post, I realised that I hadn&amp;rsquo;t explained what my project is actually about and why I chose to build it, so today I want to dive into that.&lt;/p&gt;&#xA;&lt;h1 id=&#34;why-i-chose-to-build-a-membership-system&#34;&gt;Why I Chose to Build a Membership System&lt;/h1&gt;&#xA;&lt;p&gt;When choosing a project for this backend portfolio, I wanted to avoid building something purely academic.&lt;/p&gt;&#xA;&lt;p&gt;Instead of creating a system that only exists to satisfy a set of technical requirements, I wanted to work on something that:&lt;/p&gt;</description>
     </item>
     <item>
       <title>How I get started!</title>
