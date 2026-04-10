@@ -6,14 +6,14 @@
     <description>Recent content in Ci/Cd on Tobys Portfolio</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Mar 2026 14:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 08 Apr 2026 01:00:00 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/ci/cd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deployment - From Local Development to Production</title>
       <link>http://localhost:1313/posts/week8-deployment/</link>
-      <pubDate>Sun, 22 Mar 2026 14:00:00 +0100</pubDate>
+      <pubDate>Wed, 08 Apr 2026 01:00:00 +0100</pubDate>
       <guid>http://localhost:1313/posts/week8-deployment/</guid>
-      <description>&lt;h1 id=&#34;deployment---from-local-development-to-production&#34;&gt;Deployment - From Local Development to Production&lt;/h1&gt;&#xA;&lt;p&gt;This week was where everything came together — and also where everything broke.&lt;/p&gt;&#xA;&lt;p&gt;Up until this point, the system had only existed locally on my machine.&lt;br&gt;&#xA;This week was about getting it running in a real environment, accessible through a domain.&lt;/p&gt;&#xA;&lt;p&gt;That meant dealing with:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Docker&lt;/li&gt;&#xA;&lt;li&gt;CI/CD&lt;/li&gt;&#xA;&lt;li&gt;environment variables&lt;/li&gt;&#xA;&lt;li&gt;networking&lt;/li&gt;&#xA;&lt;li&gt;and a lot of debugging&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;from-local-to-deployed-system&#34;&gt;From local to deployed system&lt;/h2&gt;&#xA;&lt;p&gt;Locally, everything worked:&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;deployment---from-local-development-to-production&#34;&gt;Deployment - From Local Development to Production&lt;/h1&gt;&#xA;&lt;p&gt;This week was where everything came together, and also where everything broke.&lt;/p&gt;&#xA;&lt;p&gt;Up until this point, the system had only existed locally on my machine.&lt;br&gt;&#xA;This week was about getting it running in a real environment, accessible through a domain.&lt;/p&gt;&#xA;&lt;p&gt;That meant dealing with:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Docker&lt;/li&gt;&#xA;&lt;li&gt;CI/CD (Continious Integration / Continious Deployment)&lt;/li&gt;&#xA;&lt;li&gt;environment variables&lt;/li&gt;&#xA;&lt;li&gt;networking&lt;/li&gt;&#xA;&lt;li&gt;and a lot of debugging&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;from-local-to-deployed-system&#34;&gt;From local to deployed system&lt;/h2&gt;&#xA;&lt;p&gt;Locally, everything worked:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

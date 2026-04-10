@@ -6,4 +6,4 @@ title = 'Video'
 
 # Here I will put a link to show an overview of my project
 
-## Stay tuned!
+https://www.youtube.com/watch?v=t8QIvZR5gmg 
