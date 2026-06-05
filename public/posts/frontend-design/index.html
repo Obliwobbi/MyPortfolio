@@ -1,0 +1,904 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+  class="h-full">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="en-us">
+<script>
+  
+  (function () {
+    const storedTheme = localStorage.getItem("theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const theme = storedTheme || (systemPrefersLight ? "light" : "dark");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<title>Frontend design - From mockup to React | Tobys Portfolio</title>
+<meta
+  name="description"
+  content="
+    Frontend development - From mockup to React application This part of the project focused on turning my backend API into an actual frontend application.
+Before …
+  
+  ">
+
+
+  <meta name="keywords" content="react, frontend, components, ui">
+
+
+
+  <meta name="author" content="Toby Alexander West Mietke Hartzberg">
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/frontend-design/">
+
+<meta name="robots" content="index, follow">
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Frontend design - From mockup to React | Tobys Portfolio">
+<meta property="og:description" content="Frontend development - From mockup to React application This part of the project focused on turning my backend API into an actual frontend application.
+Before …">
+<meta property="og:url" content="http://localhost:1313/posts/frontend-design/">
+<meta property="og:site_name" content="Tobys Portfolio"><meta property="article:published_time" content="2026-06-03T12:18:03&#43;02:00">
+  <meta
+    property="article:modified_time"
+    content="2026-06-03T12:18:03&#43;02:00"><meta property="article:author" content="Toby Alexander West Mietke Hartzberg"><meta property="article:section" content="react"><meta property="article:tag" content="react"><meta property="article:tag" content="frontend"><meta property="article:tag" content="components"><meta property="article:tag" content="ui">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Frontend design - From mockup to React | Tobys Portfolio">
+<meta name="twitter:description" content="Frontend development - From mockup to React application This part of the project focused on turning my backend API into an actual frontend application.
+Before …">
+
+<script type="application/ld+json">
+
+
+
+
+
+
+
+
+
+
+"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"Toby Alexander West Mietke Hartzberg\"},\"dateModified\":\"2026-06-03T12:18:03+02:00\",\"datePublished\":\"2026-06-03T12:18:03+02:00\",\"description\":\"Frontend development - From mockup to React application This part of the project focused on turning my backend API into an actual frontend application.\\nBefore …\",\"headline\":\"Frontend design - From mockup to React\",\"image\":null,\"keywords\":[\"react\",\"frontend\",\"components\",\"ui\"],\"mainEntityOfPage\":{\"@id\":\"http://localhost:1313/posts/frontend-design/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":null},\"name\":\"Tobys Portfolio\"}}"</script>
+
+
+
+  
+  
+  
+    
+  
+  
+<script type="application/ld+json">"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/\",\"name\":\"Tobys Portfolio\",\"position\":1},{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/posts/\",\"name\":\"Posts\",\"position\":2},{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/posts/frontend-design/\",\"name\":\"Frontend design - From mockup to React\",\"position\":3}]}"</script>
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+  rel="stylesheet">
+
+
+<link
+  rel="stylesheet"
+  href="/css/theme.min.a251f6659747f13720004e758411b578202d6d8c8dd101f6d21a21fb1bb104b2.css"
+  integrity="sha256-olH2ZZdH8TcgAE51hBG1eCAtbYyN0QH20hoh&#43;xuxBLI=">
+
+<link
+    rel="stylesheet"
+    href="/css/syntax-dark.min.b01037e5609e6260b74d6fcdd6d5131e8dcbc4d46d6ef4bfbe5a60bdfc1a9f30.css"
+    integrity="sha256-sBA35WCeYmC3TW/N1tUTHo3LxNRtbvS/vlpgvfwanzA="
+    id="syntax-dark-theme"
+    class="syntax-theme"><link
+    rel="stylesheet"
+    href="/css/syntax-light.min.9602bc2fcef52b4c62e05eae14b48ba428e114f116e993e504d83ed5a3aeda98.css"
+    integrity="sha256-lgK8L871K0xi4F6uFLSLpCjhFPEW6ZPlBNg&#43;1aOu2pg="
+    id="syntax-light-theme"
+    class="syntax-theme"
+    disabled><script>
+  
+  (function () {
+    const storedTheme = localStorage.getItem("theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const theme = storedTheme || (systemPrefersLight ? "light" : "dark");
+
+    const syntaxDark = document.getElementById("syntax-dark-theme");
+    const syntaxLight = document.getElementById("syntax-light-theme");
+
+    if (theme === "light") {
+      if (syntaxDark) syntaxDark.disabled = true;
+      if (syntaxLight) syntaxLight.disabled = false;
+    } else {
+      if (syntaxDark) syntaxDark.disabled = false;
+      if (syntaxLight) syntaxLight.disabled = true;
+    }
+
+    
+    const observer = new MutationObserver(() => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      if (currentTheme === "light") {
+        if (syntaxDark) syntaxDark.disabled = true;
+        if (syntaxLight) syntaxLight.disabled = false;
+      } else {
+        if (syntaxDark) syntaxDark.disabled = false;
+        if (syntaxLight) syntaxLight.disabled = true;
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  })();
+</script>
+
+
+
+
+<link
+  rel="stylesheet"
+  href="/css/bundle.min.d430be27649a3685c7891f7076e3e50f97bf39aabb96c243b89902f3dc6c9ead.css"
+  integrity="sha256-1DC&#43;J2SaNoXHiR9wduPlD5e/Oaq7lsJDuJkC89xsnq0=">
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/logo-transparent/favicon-32x32.png">
+
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/logo-transparent/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/logo-transparent/apple-touch-icon.png">
+<link
+  rel="icon"
+  type="image/png"
+  sizes="192x192"
+  href="/favicon/logo-transparent/android-chrome-192x192.png">
+<link
+  rel="icon"
+  type="image/png"
+  sizes="512x512"
+  href="/favicon/logo-transparent/android-chrome-512x512.png">
+<link rel="manifest" href="/favicon/logo-transparent/site.webmanifest">
+
+
+
+
+  
+
+
+
+
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <a href="#main-content" class="skip-to-main" aria-label="Skip to main content"
+      >Skip to main content</a
+    >
+    <header class="sticky-header">
+      <div class="header-container">
+        <nav class="header-nav" role="navigation" aria-label="Main navigation">
+  <div class="header-content">
+    <div class="header-logo">
+      <a href="/" class="logo-link" aria-label="Home - Tobys Portfolio">
+        Tobys Portfolio
+      </a>
+    </div>
+
+    
+    <button 
+      id="mobile-menu-toggle" 
+      class="mobile-menu-toggle" 
+      aria-label="Toggle menu" 
+      aria-expanded="false"
+      type="button">
+      <span class="hamburger-icon">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </span>
+    </button>
+
+    <div class="header-menu">
+      <ul class="menu-list">
+  
+    <li class="menu-item">
+      <a
+        href="/"
+        class="menu-link ">
+        Home
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/posts/"
+        class="menu-link ">
+        Posts
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/tags/"
+        class="menu-link ">
+        Tags
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/about/"
+        class="menu-link ">
+        About
+      </a>
+    </li>
+  
+</ul>
+
+
+      <button id="search-toggle" class="search-toggle" aria-label="Search" type="button">
+        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </button>
+
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
+  <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+  </svg>
+  <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+  </svg>
+</button>
+
+    </div>
+  </div>
+
+  
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-title">Menu</span>
+        <button 
+          id="mobile-menu-close" 
+          class="mobile-menu-close" 
+          aria-label="Close menu" 
+          type="button">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav" role="navigation" aria-label="Mobile navigation">
+        <ul class="menu-list">
+  
+    <li class="menu-item">
+      <a
+        href="/"
+        class="menu-link ">
+        Home
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/posts/"
+        class="menu-link ">
+        Posts
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/tags/"
+        class="menu-link ">
+        Tags
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/about/"
+        class="menu-link ">
+        About
+      </a>
+    </li>
+  
+</ul>
+
+      </nav>
+      <div class="mobile-menu-footer">
+        <button id="mobile-search-toggle" class="mobile-search-toggle" aria-label="Search" type="button">
+          <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <span>Search</span>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle theme" type="button">
+          <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+      </div>
+    </header>
+
+    <main id="main-content" class="flex-1" role="main">
+      
+  <div class="single-post-wrapper">
+    <article class="single-post">
+      
+
+
+
+
+
+
+
+      <header class="post-header">
+        <h1 class="post-title-main">Frontend design - From mockup to React</h1>
+
+        
+
+        <div class="post-meta">
+  <div class="post-meta-info">
+    <time datetime="2026-06-03T12:18:03&#43;02:00" class="post-date">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+      </svg>
+      June 3, 2026
+    </time>
+
+    <span class="meta-separator">•</span>
+
+    
+      <span class="post-word-count">
+        <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        1591 words
+      </span>
+    
+
+    
+      <span class="meta-separator">•</span>
+      <span class="post-reading-time">
+        <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        8 min
+      </span>
+    
+  </div>
+
+  
+    <div class="post-tags">
+      
+        <a href="/tags/react" class="post-tag">react</a>
+      
+        <a href="/tags/frontend" class="post-tag">frontend</a>
+      
+        <a href="/tags/components" class="post-tag">components</a>
+      
+        <a href="/tags/ui" class="post-tag">ui</a>
+      
+    </div>
+  
+</div>
+
+      </header>
+
+      <div class="post-content-main">
+        <h1 id="frontend-development---from-mockup-to-react-application">Frontend development - From mockup to React application</h1>
+<p>This part of the project focused on turning my backend API into an actual frontend application.</p>
+<p>Before this phase, most of my project was backend-focused. I had built REST endpoints, authentication, user management, company management and database logic, but the system was mainly something I could test through curl requests.</p>
+<p>The goal of the frontend was to build a React application that made the system feel more like a real product.</p>
+<p>I wanted the frontend to:</p>
+<ul>
+<li>show a proper landing page</li>
+<li>allow users to log in and register</li>
+<li>display users and companies</li>
+<li>show details pages</li>
+<li>support editing users and companies</li>
+<li>react differently depending on the logged-in user&rsquo;s role</li>
+<li>work both on desktop and mobile</li>
+</ul>
+<p>This meant that I had to think more about user experience, component structure, routing, state and styling.</p>
+<h2 id="starting-with-a-visual-direction">Starting with a visual direction</h2>
+<p>I started by creating a visual idea for the application.</p>
+<p>The first mockups were not meant to be perfect finished designs. They were more like a starting point, so I could get a feeling for what the system should look like.</p>
+<p>I chose a dark theme with purple accents because I wanted the application to feel modern, clean and a little more polished than a plain admin interface.</p>
+<p>The main visual direction became:</p>
+<ul>
+<li>dark background</li>
+<li>purple highlights</li>
+<li>card-based layouts</li>
+<li>rounded corners</li>
+<li>clear action buttons</li>
+<li>readable user and company cards</li>
+</ul>
+<p>This helped a lot, because I was not just coding random pages. I had a direction to follow.</p>
+<h2 id="setting-up-the-react-structure">Setting up the React structure</h2>
+<p>One of the first decisions was how to structure the React project.</p>
+<p>I chose to split the project into <strong>pages</strong> and <strong>components</strong>.</p>
+<p>Pages are full views connected to routes:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">FrontPage
+</span></span><span class="line"><span class="cl">LoginPage
+</span></span><span class="line"><span class="cl">RegisterPage
+</span></span><span class="line"><span class="cl">UsersPage
+</span></span><span class="line"><span class="cl">UserDetailsPage
+</span></span><span class="line"><span class="cl">UserEditPage
+</span></span><span class="line"><span class="cl">CompaniesPage
+</span></span><span class="line"><span class="cl">CompanyDetailsPage
+</span></span><span class="line"><span class="cl">CompanyEditPage
+</span></span><span class="line"><span class="cl">FeaturesPage
+</span></span><span class="line"><span class="cl">HowItWorksPage
+</span></span></code></pre></div><p>Components are smaller reusable UI parts:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Header
+</span></span><span class="line"><span class="cl">UserMenu
+</span></span><span class="line"><span class="cl">UserCard
+</span></span><span class="line"><span class="cl">RoleBadge
+</span></span><span class="line"><span class="cl">FeatureCard
+</span></span><span class="line"><span class="cl">ProtectedRoute
+</span></span></code></pre></div><p>This separation made the project easier to understand.</p>
+<p>A page is responsible for a full route, while a component is responsible for a smaller piece of UI.</p>
+<p>For example, the <code>UsersPage</code> does not need to know exactly how every user card is styled. It can simply render a <code>UserCard</code> for each user:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">{</span><span class="nx">filteredUsers</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">user</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">UserCard</span> <span class="na">key</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span> <span class="na">user</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">}</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">))}</span>
+</span></span></code></pre></div><p>That made the code easier to read and easier to change later.</p>
+<h2 id="thinking-in-components">Thinking in components</h2>
+<p>A big part of learning React was learning to think in components.</p>
+<p>In backend development, I am used to thinking in layers like controllers, services, DAOs and entities. In React, I had to think more in terms of user interface blocks and data flow.</p>
+<p>A component is basically a reusable function that returns JSX.</p>
+<p>For example, my <code>UserMenu</code> component receives a user and a logout function:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">UserMenu</span> <span class="na">user</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">}</span> <span class="na">onLogout</span><span class="o">=</span><span class="p">{</span><span class="nx">handleLogout</span><span class="p">}</span> <span class="p">/&gt;</span>
+</span></span></code></pre></div><p>This means the component does not need to know how login works or where the user came from. It just displays the user information and calls <code>onLogout</code> when the logout button is clicked.</p>
+<p>That was an important learning point for me: components become easier to reuse when they receive what they need through props instead of handling everything themselves.</p>
+<h2 id="props-and-reusable-ui">Props and reusable UI</h2>
+<p>Props are used to pass data into components.</p>
+<p>I used props in several places, for example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">UserCard</span> <span class="na">user</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">}</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">RoleBadge</span> <span class="na">role</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">role</span><span class="p">}</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">UserMenu</span> <span class="na">user</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">}</span> <span class="na">onLogout</span><span class="o">=</span><span class="p">{</span><span class="nx">handleLogout</span><span class="p">}</span> <span class="p">/&gt;</span>
+</span></span></code></pre></div><p>This helped me avoid repeating the same UI logic.</p>
+<p>One example is the role badge. The backend sends roles like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">SYSTEM_ADMIN
+</span></span><span class="line"><span class="cl">COMPANY_ADMIN
+</span></span><span class="line"><span class="cl">MEMBER
+</span></span></code></pre></div><p>That is fine for the backend and database, but it does not look very user-friendly in the frontend.</p>
+<p>So I created a <code>RoleBadge</code> component that formats the role text and styles it visually.</p>
+<p>Instead of showing:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">SYSTEM_ADMIN
+</span></span></code></pre></div><p>the frontend can show:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">System Admin
+</span></span></code></pre></div><p>This gave me a better understanding of how the frontend can make backend data more readable without changing the backend model.</p>
+<h2 id="state-in-react">State in React</h2>
+<p>Another major part of the frontend was learning how state works.</p>
+<p>I used <code>useState</code> for values that can change while the user interacts with the application.</p>
+<p>For example, on the login page I used state for:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">email</span><span class="p">,</span> <span class="nx">setEmail</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">password</span><span class="p">,</span> <span class="nx">setPassword</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">errorMessage</span><span class="p">,</span> <span class="nx">setErrorMessage</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">isLoading</span><span class="p">,</span> <span class="nx">setIsLoading</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+</span></span></code></pre></div><p>This made the form reactive. When the user types in an input field, React updates the state, and the UI updates automatically.</p>
+<p>I also used state on pages that fetch data, such as the users page:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">users</span><span class="p">,</span> <span class="nx">setUsers</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([])</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">isLoading</span><span class="p">,</span> <span class="nx">setIsLoading</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">errorMessage</span><span class="p">,</span> <span class="nx">setErrorMessage</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>This made it possible to show different UI states:</p>
+<ul>
+<li>loading</li>
+<li>error</li>
+<li>empty result</li>
+<li>data loaded successfully</li>
+</ul>
+<p>That was one of the first places where React started to make more sense to me. The page is basically a result of the current state.</p>
+<h2 id="controlled-forms">Controlled forms</h2>
+<p>The login, register and edit pages use controlled form inputs.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">input</span>
+</span></span><span class="line"><span class="cl">  <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">email</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="na">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">setEmail</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl"><span class="p">/&gt;</span>
+</span></span></code></pre></div><p>This means React controls the value of the input.</p>
+<p>The input value is stored in state, and every time the user types, the state is updated.</p>
+<p>This made forms easier to work with because I could collect all form values from state when submitting.</p>
+<p>I used the same concept on the edit pages, where the form is first filled with data from the API and then updated through state.</p>
+<h2 id="routing-and-pages">Routing and pages</h2>
+<p>I used React Router to make the frontend work like a multi-page application while still being a single page application.</p>
+<p>The main structure uses routes like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">/
+</span></span><span class="line"><span class="cl"> /login
+</span></span><span class="line"><span class="cl"> /register
+</span></span><span class="line"><span class="cl"> /users
+</span></span><span class="line"><span class="cl"> /users/:id
+</span></span><span class="line"><span class="cl"> /users/:id/edit
+</span></span><span class="line"><span class="cl"> /companies
+</span></span><span class="line"><span class="cl"> /companies/:id
+</span></span><span class="line"><span class="cl"> /companies/:id/edit
+</span></span><span class="line"><span class="cl"> /features
+</span></span><span class="line"><span class="cl"> /how-it-works
+</span></span></code></pre></div><p>The <code>App.jsx</code> file acts as a layout:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">Header</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">Outlet</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>The <code>Outlet</code> is where the active page is rendered.</p>
+<p>This means the header stays visible, while the content inside the page changes depending on the route.</p>
+<p>React Router also allowed me to use route parameters. For example, the user details page can read the user id from the URL:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">id</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useParams</span><span class="p">()</span>
+</span></span></code></pre></div><p>Then it can fetch:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">apiGet</span><span class="p">(</span><span class="sb">`/users/</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+</span></span></code></pre></div><p>This made it possible to build details and edit pages for users and companies.</p>
+<h2 id="preserving-filter-state-with-query-parameters">Preserving filter state with query parameters</h2>
+<p>On the users page, I added search and filtering.</p>
+<p>The user can filter by:</p>
+<ul>
+<li>search text</li>
+<li>role</li>
+<li>company</li>
+</ul>
+<p>At first, these values were stored only in React state. That worked until I navigated to a details page and then went back. The filters were lost because the page was reloaded.</p>
+<p>To fix this, I used query parameters with React Router.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">/users?search=toby&amp;role=MEMBER&amp;company=ALL
+</span></span></code></pre></div><p>This means the filter state is stored in the URL instead of only inside the component.</p>
+<p>That was a useful learning point because it made the page more stable. The filter can survive navigation and refreshes, and the URL actually describes what the user is looking at.</p>
+<h2 id="conditional-rendering">Conditional rendering</h2>
+<p>I used conditional rendering several places in the project.</p>
+<p>For loading and errors:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">isLoading</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">Loading</span> <span class="nx">users</span><span class="p">...&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">errorMessage</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">errorMessage</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>For login state:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">{</span><span class="nx">user</span> <span class="o">?</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">UserMenu</span> <span class="na">user</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">}</span> <span class="na">onLogout</span><span class="o">=</span><span class="p">{</span><span class="nx">handleLogout</span><span class="p">}</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">:</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">NavLink</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/login&#34;</span><span class="p">&gt;</span><span class="nx">Login</span><span class="p">&lt;/</span><span class="nt">NavLink</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)}</span>
+</span></span></code></pre></div><p>And for role-based UI:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">canEditCompany</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">currentUser</span><span class="o">?</span><span class="p">.</span><span class="nx">role</span> <span class="o">===</span> <span class="s1">&#39;SYSTEM_ADMIN&#39;</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">currentUser</span><span class="o">?</span><span class="p">.</span><span class="nx">role</span> <span class="o">===</span> <span class="s1">&#39;COMPANY_ADMIN&#39;</span>
+</span></span></code></pre></div><p>This helped me understand that React components can return different UI depending on state, props or user role.</p>
+<h2 id="styling-the-application">Styling the application</h2>
+<p>I used regular CSS files for each page and component.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Header.jsx
+</span></span><span class="line"><span class="cl">Header.css
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">UsersPage.jsx
+</span></span><span class="line"><span class="cl">UsersPage.css
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">UserCard.jsx
+</span></span><span class="line"><span class="cl">UserCard.css
+</span></span></code></pre></div><p>This made the CSS easier to connect to the component it belongs to.</p>
+<p>One issue I ran into was that some headings appeared white in my browser, but black on another computer.</p>
+<p>The reason was that the global CSS used <code>prefers-color-scheme</code>, which changed variables depending on whether the system was in light or dark mode.</p>
+<p>This taught me that global CSS can affect the whole application in unexpected ways. I fixed it by making the dark theme explicit, so text and headings stay consistent for everyone.</p>
+<h2 id="responsive-design">Responsive design</h2>
+<p>Towards the end of the frontend work, I also made the site more mobile-friendly.</p>
+<p>The biggest change was the header.</p>
+<p>On desktop, the header shows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Logo | Navigation links | User menu
+</span></span></code></pre></div><p>On mobile, I changed it to a burger menu.</p>
+<p>The mobile menu slides down over the page instead of pushing the content down. This made the mobile experience feel smoother and more like a real application.</p>
+<p>I also adjusted cards, grids and forms so they work better on smaller screens.</p>
+<p>This involved using media queries and changing layouts from multiple columns to one column.</p>
+<p>For example, a user card can be shown in multiple columns on desktop, but stacked vertically on mobile.</p>
+<h2 id="reflections">Reflections</h2>
+<p>This frontend phase made the project feel much more complete.</p>
+<p>Before the frontend, I could show that the backend worked, but it was not easy for a normal user to interact with. After building the React frontend, the project became something that looked and felt like an actual application.</p>
+<p>The biggest things I learned were:</p>
+<ul>
+<li>how to split an application into pages and components</li>
+<li>how props make components reusable</li>
+<li>how state controls dynamic UI</li>
+<li>how controlled forms work</li>
+<li>how React Router handles pages and nested routes</li>
+<li>how query parameters can preserve search/filter state</li>
+<li>how conditional rendering can change UI based on login state and roles</li>
+<li>how important global CSS decisions are</li>
+<li>how responsive design changes the way components should be structured</li>
+</ul>
+<p>I also learned that frontend development is not just about making things look nice.</p>
+<p>It is also about structure, data flow, user experience, error handling, routing and making sure the interface matches what the backend allows.</p>
+<p>This phase gave me a much better understanding of how a frontend application is built on top of a backend API.</p>
+
+      </div>
+
+      
+        <footer class="post-footer">
+          <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            
+              <a href="/tags/react" class="post-tag">react</a>
+            
+              <a href="/tags/frontend" class="post-tag">frontend</a>
+            
+              <a href="/tags/components" class="post-tag">components</a>
+            
+              <a href="/tags/ui" class="post-tag">ui</a>
+            
+          </div>
+        </footer>
+      
+
+
+      <nav class="post-navigation" aria-label="Post navigation">
+        
+          <a
+            href="/posts/video/"
+            class="nav-link nav-prev"
+            aria-label="Previous post: Video">
+            <span class="nav-label">Previous</span>
+            <span class="nav-title">Video</span>
+          </a>
+        
+
+        
+          <a
+            href="/posts/frontend-integration/"
+            class="nav-link nav-next"
+            aria-label="Next post: Frontend integration - API, authentication, roles and deployment">
+            <span class="nav-label">Next</span>
+            <span class="nav-title">Frontend integration - API, authentication, roles and deployment</span>
+          </a>
+        
+      </nav>
+    </article>
+
+    
+  <aside class="post-toc" id="post-toc" aria-label="Table of contents">
+    <button
+      class="toc-toggle"
+      id="toc-toggle"
+      aria-expanded="true"
+      aria-controls="toc-content"
+      aria-label="Toggle table of contents">
+      <svg
+        class="toc-burger-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <span class="toc-toggle-text">Table of Contents</span>
+      <svg
+        class="toc-chevron-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+    <div class="toc-content" id="toc-content">
+      <nav class="toc-nav" aria-label="Table of contents">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#frontend-development---from-mockup-to-react-application">Frontend development - From mockup to React application</a>
+      <ul>
+        <li><a href="#starting-with-a-visual-direction">Starting with a visual direction</a></li>
+        <li><a href="#setting-up-the-react-structure">Setting up the React structure</a></li>
+        <li><a href="#thinking-in-components">Thinking in components</a></li>
+        <li><a href="#props-and-reusable-ui">Props and reusable UI</a></li>
+        <li><a href="#state-in-react">State in React</a></li>
+        <li><a href="#controlled-forms">Controlled forms</a></li>
+        <li><a href="#routing-and-pages">Routing and pages</a></li>
+        <li><a href="#preserving-filter-state-with-query-parameters">Preserving filter state with query parameters</a></li>
+        <li><a href="#conditional-rendering">Conditional rendering</a></li>
+        <li><a href="#styling-the-application">Styling the application</a></li>
+        <li><a href="#responsive-design">Responsive design</a></li>
+        <li><a href="#reflections">Reflections</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </nav>
+    </div>
+  </aside>
+
+
+  </div>
+
+    </main>
+
+    <footer>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <p class="footer-text">
+      &copy;
+      
+      2026
+      
+      Tobys Portfolio.
+      
+        Built with Hugo and Mana theme
+      
+    </p>
+    
+      <div class="footer-social">
+        <div class="social-links">
+  
+    <a
+      href="https://github.com/Obliwobbi"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-link"
+      aria-label="GitHub">
+      <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill-rule="evenodd"
+          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </a>
+  
+
+  
+    <a
+      href="https://www.linkedin.com/in/tahartzberg"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-link"
+      aria-label="LinkedIn">
+      <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+      </svg>
+    </a>
+  
+
+  
+</div>
+
+      </div>
+    
+  </div>
+</footer>
+
+    </footer>
+
+    <div id="search-modal" class="search-modal" aria-hidden="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop" id="search-modal-backdrop"></div>
+  <div class="search-modal-container">
+    <div class="search-input-wrapper">
+      <svg class="search-input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+      <input
+        type="search"
+        id="search-input"
+        class="search-input"
+        placeholder="Search..."
+        autocomplete="off"
+        aria-label="Search input">
+      <button class="search-input-clear" id="search-input-clear" aria-label="Clear search">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+        </svg>
+      </button>
+      <button class="search-modal-close" id="search-modal-close" aria-label="Close search">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+</div>
+
+    
+
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" type="button">
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+  </svg>
+</button>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.cdc6a3c4f498c0556bc507848c493a55af2da9b14233c21300b240b89857180d.js" defer></script>
+
+  </body>
+</html>

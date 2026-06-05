@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Routing on Tobys Portfolio</title>
+    <link>http://localhost:1313/tags/routing/</link>
+    <description>Recent content in Routing on Tobys Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Jun 2026 12:30:04 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/routing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Frontend integration - API, authentication, roles and deployment</title>
+      <link>http://localhost:1313/posts/frontend-integration/</link>
+      <pubDate>Fri, 05 Jun 2026 12:30:04 +0200</pubDate>
+      <guid>http://localhost:1313/posts/frontend-integration/</guid>
+      <description>&lt;h1 id=&#34;frontend-integration---api-authentication-roles-and-deployment&#34;&gt;Frontend integration - API, authentication, roles and deployment&lt;/h1&gt;&#xA;&lt;p&gt;This part of the frontend project focused on connecting my React application to the backend API.&lt;/p&gt;&#xA;&lt;p&gt;The goal was no longer just to make static pages. The frontend had to communicate with the backend, handle login, store a JWT token, fetch protected data, show different UI depending on the logged-in user and finally be deployed behind my domain.&lt;/p&gt;&#xA;&lt;p&gt;This was the part of the project where the frontend and backend really started working together.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

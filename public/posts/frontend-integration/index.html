@@ -1,0 +1,993 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+  class="h-full">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="en-us">
+<script>
+  
+  (function () {
+    const storedTheme = localStorage.getItem("theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const theme = storedTheme || (systemPrefersLight ? "light" : "dark");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<title>Frontend integration - API, authentication, roles and deployment | Tobys Portfolio</title>
+<meta
+  name="description"
+  content="
+    Frontend integration - API, authentication, roles and deployment This part of the frontend project focused on connecting my React application to the backend …
+  
+  ">
+
+
+  <meta name="keywords" content="react, api, jwt, routing, deployment, caddy">
+
+
+
+  <meta name="author" content="Toby Alexander West Mietke Hartzberg">
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/frontend-integration/">
+
+<meta name="robots" content="index, follow">
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Frontend integration - API, authentication, roles and deployment | Tobys Portfolio">
+<meta property="og:description" content="Frontend integration - API, authentication, roles and deployment This part of the frontend project focused on connecting my React application to the backend …">
+<meta property="og:url" content="http://localhost:1313/posts/frontend-integration/">
+<meta property="og:site_name" content="Tobys Portfolio"><meta property="article:published_time" content="2026-06-05T12:30:04&#43;02:00">
+  <meta
+    property="article:modified_time"
+    content="2026-06-05T12:30:04&#43;02:00"><meta property="article:author" content="Toby Alexander West Mietke Hartzberg"><meta property="article:section" content="react"><meta property="article:tag" content="react"><meta property="article:tag" content="api"><meta property="article:tag" content="jwt"><meta property="article:tag" content="routing"><meta property="article:tag" content="deployment"><meta property="article:tag" content="caddy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Frontend integration - API, authentication, roles and deployment | Tobys Portfolio">
+<meta name="twitter:description" content="Frontend integration - API, authentication, roles and deployment This part of the frontend project focused on connecting my React application to the backend …">
+
+<script type="application/ld+json">
+
+
+
+
+
+
+
+
+
+
+"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"author\":{\"@type\":\"Person\",\"name\":\"Toby Alexander West Mietke Hartzberg\"},\"dateModified\":\"2026-06-05T12:30:04+02:00\",\"datePublished\":\"2026-06-05T12:30:04+02:00\",\"description\":\"Frontend integration - API, authentication, roles and deployment This part of the frontend project focused on connecting my React application to the backend …\",\"headline\":\"Frontend integration - API, authentication, roles and deployment\",\"image\":null,\"keywords\":[\"react\",\"api\",\"jwt\",\"routing\",\"deployment\",\"caddy\"],\"mainEntityOfPage\":{\"@id\":\"http://localhost:1313/posts/frontend-integration/\",\"@type\":\"WebPage\"},\"publisher\":{\"@type\":\"Organization\",\"logo\":{\"@type\":\"ImageObject\",\"url\":null},\"name\":\"Tobys Portfolio\"}}"</script>
+
+
+
+  
+  
+  
+    
+  
+  
+<script type="application/ld+json">"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/\",\"name\":\"Tobys Portfolio\",\"position\":1},{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/posts/\",\"name\":\"Posts\",\"position\":2},{\"@type\":\"ListItem\",\"item\":\"http://localhost:1313/posts/frontend-integration/\",\"name\":\"Frontend integration - API, authentication, roles and deployment\",\"position\":3}]}"</script>
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+  rel="stylesheet">
+
+
+<link
+  rel="stylesheet"
+  href="/css/theme.min.a251f6659747f13720004e758411b578202d6d8c8dd101f6d21a21fb1bb104b2.css"
+  integrity="sha256-olH2ZZdH8TcgAE51hBG1eCAtbYyN0QH20hoh&#43;xuxBLI=">
+
+<link
+    rel="stylesheet"
+    href="/css/syntax-dark.min.b01037e5609e6260b74d6fcdd6d5131e8dcbc4d46d6ef4bfbe5a60bdfc1a9f30.css"
+    integrity="sha256-sBA35WCeYmC3TW/N1tUTHo3LxNRtbvS/vlpgvfwanzA="
+    id="syntax-dark-theme"
+    class="syntax-theme"><link
+    rel="stylesheet"
+    href="/css/syntax-light.min.9602bc2fcef52b4c62e05eae14b48ba428e114f116e993e504d83ed5a3aeda98.css"
+    integrity="sha256-lgK8L871K0xi4F6uFLSLpCjhFPEW6ZPlBNg&#43;1aOu2pg="
+    id="syntax-light-theme"
+    class="syntax-theme"
+    disabled><script>
+  
+  (function () {
+    const storedTheme = localStorage.getItem("theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const theme = storedTheme || (systemPrefersLight ? "light" : "dark");
+
+    const syntaxDark = document.getElementById("syntax-dark-theme");
+    const syntaxLight = document.getElementById("syntax-light-theme");
+
+    if (theme === "light") {
+      if (syntaxDark) syntaxDark.disabled = true;
+      if (syntaxLight) syntaxLight.disabled = false;
+    } else {
+      if (syntaxDark) syntaxDark.disabled = false;
+      if (syntaxLight) syntaxLight.disabled = true;
+    }
+
+    
+    const observer = new MutationObserver(() => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      if (currentTheme === "light") {
+        if (syntaxDark) syntaxDark.disabled = true;
+        if (syntaxLight) syntaxLight.disabled = false;
+      } else {
+        if (syntaxDark) syntaxDark.disabled = false;
+        if (syntaxLight) syntaxLight.disabled = true;
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  })();
+</script>
+
+
+
+
+<link
+  rel="stylesheet"
+  href="/css/bundle.min.d430be27649a3685c7891f7076e3e50f97bf39aabb96c243b89902f3dc6c9ead.css"
+  integrity="sha256-1DC&#43;J2SaNoXHiR9wduPlD5e/Oaq7lsJDuJkC89xsnq0=">
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/logo-transparent/favicon-32x32.png">
+
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/logo-transparent/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/logo-transparent/apple-touch-icon.png">
+<link
+  rel="icon"
+  type="image/png"
+  sizes="192x192"
+  href="/favicon/logo-transparent/android-chrome-192x192.png">
+<link
+  rel="icon"
+  type="image/png"
+  sizes="512x512"
+  href="/favicon/logo-transparent/android-chrome-512x512.png">
+<link rel="manifest" href="/favicon/logo-transparent/site.webmanifest">
+
+
+
+
+  
+
+
+
+
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <a href="#main-content" class="skip-to-main" aria-label="Skip to main content"
+      >Skip to main content</a
+    >
+    <header class="sticky-header">
+      <div class="header-container">
+        <nav class="header-nav" role="navigation" aria-label="Main navigation">
+  <div class="header-content">
+    <div class="header-logo">
+      <a href="/" class="logo-link" aria-label="Home - Tobys Portfolio">
+        Tobys Portfolio
+      </a>
+    </div>
+
+    
+    <button 
+      id="mobile-menu-toggle" 
+      class="mobile-menu-toggle" 
+      aria-label="Toggle menu" 
+      aria-expanded="false"
+      type="button">
+      <span class="hamburger-icon">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </span>
+    </button>
+
+    <div class="header-menu">
+      <ul class="menu-list">
+  
+    <li class="menu-item">
+      <a
+        href="/"
+        class="menu-link ">
+        Home
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/posts/"
+        class="menu-link ">
+        Posts
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/tags/"
+        class="menu-link ">
+        Tags
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/about/"
+        class="menu-link ">
+        About
+      </a>
+    </li>
+  
+</ul>
+
+
+      <button id="search-toggle" class="search-toggle" aria-label="Search" type="button">
+        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </button>
+
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
+  <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+  </svg>
+  <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+  </svg>
+</button>
+
+    </div>
+  </div>
+
+  
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-title">Menu</span>
+        <button 
+          id="mobile-menu-close" 
+          class="mobile-menu-close" 
+          aria-label="Close menu" 
+          type="button">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav" role="navigation" aria-label="Mobile navigation">
+        <ul class="menu-list">
+  
+    <li class="menu-item">
+      <a
+        href="/"
+        class="menu-link ">
+        Home
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/posts/"
+        class="menu-link ">
+        Posts
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/tags/"
+        class="menu-link ">
+        Tags
+      </a>
+    </li>
+  
+    <li class="menu-item">
+      <a
+        href="/about/"
+        class="menu-link ">
+        About
+      </a>
+    </li>
+  
+</ul>
+
+      </nav>
+      <div class="mobile-menu-footer">
+        <button id="mobile-search-toggle" class="mobile-search-toggle" aria-label="Search" type="button">
+          <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <span>Search</span>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle theme" type="button">
+          <svg class="icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <svg class="icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+      </div>
+    </header>
+
+    <main id="main-content" class="flex-1" role="main">
+      
+  <div class="single-post-wrapper">
+    <article class="single-post">
+      
+
+
+
+
+
+
+
+      <header class="post-header">
+        <h1 class="post-title-main">Frontend integration - API, authentication, roles and deployment</h1>
+
+        
+
+        <div class="post-meta">
+  <div class="post-meta-info">
+    <time datetime="2026-06-05T12:30:04&#43;02:00" class="post-date">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+      </svg>
+      June 5, 2026
+    </time>
+
+    <span class="meta-separator">•</span>
+
+    
+      <span class="post-word-count">
+        <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        1872 words
+      </span>
+    
+
+    
+      <span class="meta-separator">•</span>
+      <span class="post-reading-time">
+        <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        9 min
+      </span>
+    
+  </div>
+
+  
+    <div class="post-tags">
+      
+        <a href="/tags/react" class="post-tag">react</a>
+      
+        <a href="/tags/api" class="post-tag">api</a>
+      
+        <a href="/tags/jwt" class="post-tag">jwt</a>
+      
+        <a href="/tags/routing" class="post-tag">routing</a>
+      
+        <a href="/tags/deployment" class="post-tag">deployment</a>
+      
+        <a href="/tags/caddy" class="post-tag">caddy</a>
+      
+    </div>
+  
+</div>
+
+      </header>
+
+      <div class="post-content-main">
+        <h1 id="frontend-integration---api-authentication-roles-and-deployment">Frontend integration - API, authentication, roles and deployment</h1>
+<p>This part of the frontend project focused on connecting my React application to the backend API.</p>
+<p>The goal was no longer just to make static pages. The frontend had to communicate with the backend, handle login, store a JWT token, fetch protected data, show different UI depending on the logged-in user and finally be deployed behind my domain.</p>
+<p>This was the part of the project where the frontend and backend really started working together.</p>
+<h2 id="connecting-react-to-the-backend-api">Connecting React to the backend API</h2>
+<p>In the beginning, I made API calls directly inside components using <code>fetch</code>.</p>
+<p>For example, the login page originally sent a request directly to the backend URL.</p>
+<p>That worked, but it quickly became messy because every page would need to repeat:</p>
+<ul>
+<li>base URL</li>
+<li>headers</li>
+<li>JSON parsing</li>
+<li>error handling</li>
+<li>authorization token</li>
+</ul>
+<p>To avoid that, I created an <code>apiClient.js</code>.</p>
+<p>The idea was to have one central place for API communication.</p>
+<p>Instead of writing <code>fetch</code> directly in every page, I could write:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">apiGet</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>or:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">apiPost</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">email</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">password</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">},</span> <span class="kc">false</span><span class="p">)</span>
+</span></span></code></pre></div><p>This made the frontend cleaner and made it easier to change the API base URL later.</p>
+<h2 id="handling-api-responses">Handling API responses</h2>
+<p>In the API client, I added a helper for handling responses.</p>
+<p>The goal was to avoid repeating the same error handling in every component.</p>
+<p>The response handler checks if the response is okay. If not, it tries to read the error message from the backend.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">async</span> <span class="kd">function</span> <span class="nx">handleResponse</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">errorMessage</span> <span class="o">=</span> <span class="sb">`API error: </span><span class="si">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb">`</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">errorData</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">errorMessage</span> <span class="o">=</span> <span class="nx">errorData</span><span class="p">.</span><span class="nx">message</span> <span class="o">??</span> <span class="nx">errorMessage</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// fallback if the API does not return JSON
+</span></span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">errorMessage</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">204</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">null</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kr">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This was useful because the pages could use normal <code>try/catch</code> blocks.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">apiGet</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">setUsers</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">setErrorMessage</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">setIsLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This gave me a better understanding of how frontend error handling should work with HTTP errors.</p>
+<h2 id="async-and-await">Async and await</h2>
+<p>Fetching data from an API is asynchronous because the frontend has to wait for the backend to respond.</p>
+<p>I used <code>async</code> and <code>await</code> in several places.</p>
+<p>For example, the users page fetches users inside <code>useEffect</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">async</span> <span class="kd">function</span> <span class="nx">fetchUsers</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">apiGet</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">setUsers</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">setErrorMessage</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">setIsLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">fetchUsers</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">},</span> <span class="p">[])</span>
+</span></span></code></pre></div><p>This taught me that React itself does not wait for data automatically. I have to handle loading state, error state and the final data state.</p>
+<p>The empty dependency array means the effect runs once when the component is mounted.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">},</span> <span class="p">[])</span>
+</span></span></code></pre></div><p>I also used a dependency array with route changes in the header, so the header could refetch the logged-in user when navigation changed.</p>
+<h2 id="login-with-jwt">Login with JWT</h2>
+<p>The login flow uses JWT authentication.</p>
+<p>The flow is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">1. User enters email and password
+</span></span><span class="line"><span class="cl">2. Frontend sends POST /login
+</span></span><span class="line"><span class="cl">3. Backend validates the credentials
+</span></span><span class="line"><span class="cl">4. Backend returns a JWT token
+</span></span><span class="line"><span class="cl">5. Frontend stores the token
+</span></span><span class="line"><span class="cl">6. Future API requests include the token in the Authorization header
+</span></span></code></pre></div><p>In the login page, after a successful login, the token is stored in <code>localStorage</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">.</span><span class="nx">token</span><span class="p">)</span>
+</span></span></code></pre></div><p>Then the API client adds the token to protected requests:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">headers</span><span class="p">.</span><span class="nx">Authorization</span> <span class="o">=</span> <span class="sb">`Bearer </span><span class="si">${</span><span class="nx">token</span><span class="si">}</span><span class="sb">`</span>
+</span></span></code></pre></div><p>This made it possible to call protected endpoints like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">GET /api/v1/users
+</span></span><span class="line"><span class="cl">GET /api/v1/companies
+</span></span><span class="line"><span class="cl">GET /api/v1/me
+</span></span></code></pre></div><h2 id="localstorage">localStorage</h2>
+<p>I used <code>localStorage</code> to store the JWT token.</p>
+<p>The benefit of <code>localStorage</code> is that the token remains after a page refresh.</p>
+<p>That means the user does not get logged out just because the page reloads.</p>
+<p>A simplified example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">.</span><span class="nx">token</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>I also used <code>localStorage.removeItem('token')</code> when the user logs out.</p>
+<p>One important reflection is that storing tokens in the browser always has security considerations. For this project, localStorage was a simple and practical solution, but I understand that in larger production systems, token handling can be more advanced.</p>
+<h2 id="the-me-endpoint-and-current-user-state">The /me endpoint and current user state</h2>
+<p>After login, the frontend needs to know who is logged in.</p>
+<p>For that, I used the <code>/me</code> endpoint.</p>
+<p>The <code>/me</code> endpoint returns information about the logged-in user, such as:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;admin@obli.dk&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;firstname&#34;</span><span class="p">:</span> <span class="s2">&#34;Admin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;lastname&#34;</span><span class="p">:</span> <span class="s2">&#34;User&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;SYSTEM_ADMIN&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;companyId&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;companyName&#34;</span><span class="p">:</span> <span class="s2">&#34;Membersystem Bootstrap Company&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>The header uses this endpoint to decide whether to show the login button or the user menu.</p>
+<p>If there is no token, the header shows public navigation.</p>
+<p>If there is a valid token, the header shows user-specific navigation.</p>
+<h2 id="role-based-ui">Role-based UI</h2>
+<p>The application has three main roles:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">SYSTEM_ADMIN
+</span></span><span class="line"><span class="cl">COMPANY_ADMIN
+</span></span><span class="line"><span class="cl">MEMBER
+</span></span></code></pre></div><p>I used the logged-in user&rsquo;s role to change the frontend navigation.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Logged out:
+</span></span><span class="line"><span class="cl">Home | Features | How it works | Login
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">SYSTEM_ADMIN:
+</span></span><span class="line"><span class="cl">Users | Companies | UserMenu
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">COMPANY_ADMIN:
+</span></span><span class="line"><span class="cl">My Users | My Company | UserMenu
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">MEMBER:
+</span></span><span class="line"><span class="cl">My Profile | My Company | UserMenu
+</span></span></code></pre></div><p>The function for generating menu items checks the current user:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">getMenuItems</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Home&#39;</span><span class="p">,</span> <span class="nx">to</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Features&#39;</span><span class="p">,</span> <span class="nx">to</span><span class="o">:</span> <span class="s1">&#39;/features&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;How it works&#39;</span><span class="p">,</span> <span class="nx">to</span><span class="o">:</span> <span class="s1">&#39;/how-it-works&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">role</span> <span class="o">===</span> <span class="s1">&#39;SYSTEM_ADMIN&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Users&#39;</span><span class="p">,</span> <span class="nx">to</span><span class="o">:</span> <span class="s1">&#39;/users&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Companies&#39;</span><span class="p">,</span> <span class="nx">to</span><span class="o">:</span> <span class="s1">&#39;/companies&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">role</span> <span class="o">===</span> <span class="s1">&#39;COMPANY_ADMIN&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;My Users&#39;</span><span class="p">,</span> <span class="nx">to</span><span class="o">:</span> <span class="s1">&#39;/users&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;My Company&#39;</span><span class="p">,</span> <span class="nx">to</span><span class="o">:</span> <span class="s1">&#39;/companies&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;My Profile&#39;</span><span class="p">,</span> <span class="nx">to</span><span class="o">:</span> <span class="sb">`/users/</span><span class="si">${</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;My Company&#39;</span><span class="p">,</span> <span class="nx">to</span><span class="o">:</span> <span class="s1">&#39;/companies&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This made the UI feel more relevant to the user.</p>
+<p>A member does not need to see the same menu as a system admin.</p>
+<h2 id="frontend-role-checks-are-not-security">Frontend role checks are not security</h2>
+<p>One of the most important reflections I made during this part was that frontend role checks are only for user experience.</p>
+<p>They are not real security.</p>
+<p>Even if I hide a button in React, a user could still manually send a request with curl or through browser developer tools.</p>
+<p>Therefore, the backend must still check the user&rsquo;s role and company before returning or changing data.</p>
+<p>For example, the frontend can hide <code>SYSTEM_ADMIN</code> from a company admin&rsquo;s role dropdown, but the backend must still reject the request if a company admin tries to promote someone to system admin.</p>
+<p>This helped me understand the difference between:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Frontend role-based UI = user experience
+</span></span><span class="line"><span class="cl">Backend authorization = actual security
+</span></span></code></pre></div><h2 id="protected-routes">Protected routes</h2>
+<p>I also created a <code>ProtectedRoute</code> component.</p>
+<p>The idea is simple: if there is no token, the user should not access protected pages in the frontend.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">ProtectedRoute</span><span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">token</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">&lt;</span><span class="nt">Navigate</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/login&#34;</span> <span class="na">replace</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">children</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This is used around protected pages like users and companies.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">ProtectedRoute</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">UsersPage</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">ProtectedRoute</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>This improves the user experience, because unauthenticated users are redirected to login.</p>
+<p>But again, the backend still needs to protect the data.</p>
+<h2 id="react-router-and-navigation">React Router and navigation</h2>
+<p>React Router was used throughout the frontend.</p>
+<p>I used:</p>
+<ul>
+<li><code>BrowserRouter</code></li>
+<li><code>Routes</code></li>
+<li><code>Route</code></li>
+<li><code>NavLink</code></li>
+<li><code>Outlet</code></li>
+<li><code>useNavigate</code></li>
+<li><code>useParams</code></li>
+<li><code>useLocation</code></li>
+<li><code>useSearchParams</code></li>
+</ul>
+<p>Each of these solved a specific problem.</p>
+<p><code>NavLink</code> helped style active menu links.</p>
+<p><code>useNavigate</code> helped redirect users after login and after saving edit forms.</p>
+<p><code>useParams</code> helped details pages read ids from the URL.</p>
+<p><code>useLocation</code> helped remember where a user came from.</p>
+<p><code>useSearchParams</code> helped preserve filtering on the users page.</p>
+<p>This made me understand that routing is not just about changing pages. It also controls navigation flow and how state can be represented in the URL.</p>
+<h2 id="register-flow">Register flow</h2>
+<p>I also added a register page.</p>
+<p>The register page lets a new user select a company from a dropdown and create an account.</p>
+<p>At first, this caused a problem because <code>/companies</code> became protected. The register page could no longer fetch companies without a token.</p>
+<p>The solution was to create a separate public endpoint for the register dropdown:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">GET /api/v1/companies/public
+</span></span></code></pre></div><p>That endpoint only returns the company id and name, which is enough for registration.</p>
+<p>This taught me that not all endpoints have the same purpose.</p>
+<p>A protected <code>/companies</code> endpoint can be role-filtered, while a public <code>/companies/public</code> endpoint can be used for a limited signup flow.</p>
+<h2 id="cors-issues-during-development">CORS issues during development</h2>
+<p>While developing locally, my React frontend ran on:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">http://localhost:5173
+</span></span></code></pre></div><p>and my backend ran on:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">http://localhost:7070
+</span></span></code></pre></div><p>Even though both are localhost, they are different origins because they use different ports.</p>
+<p>The browser blocked requests because of CORS.</p>
+<p>This was confusing at first, because curl worked, but the browser did not.</p>
+<p>The reason is that CORS is enforced by browsers.</p>
+<p>I fixed this by allowing the frontend origin in the backend CORS configuration.</p>
+<p>This taught me the difference between:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">curl request
+</span></span><span class="line"><span class="cl">browser request
+</span></span></code></pre></div><p>and why CORS only appears as a frontend/browser issue.</p>
+<h2 id="deployment-setup">Deployment setup</h2>
+<p>For deployment, I built the frontend as a Docker image and served it behind Caddy.</p>
+<p>The deployment flow is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Push code to GitHub
+</span></span><span class="line"><span class="cl">GitHub Actions builds Docker image
+</span></span><span class="line"><span class="cl">Docker image is pushed to Docker Hub
+</span></span><span class="line"><span class="cl">Droplet pulls the new image
+</span></span><span class="line"><span class="cl">Caddy serves the frontend and proxies API requests
+</span></span></code></pre></div><p>The React app is built with Vite.</p>
+<p>When building the frontend, Vite creates static files in the <code>dist</code> folder.</p>
+<p>These files can be served by a web server.</p>
+<p>In deployment, the frontend runs in its own container, while the backend runs in another container.</p>
+<p>Caddy handles the public domain.</p>
+<h2 id="caddy-and-routing">Caddy and routing</h2>
+<p>Caddy is used as the public entry point.</p>
+<p>The desired structure is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">https://membersystem.obli.dk
+</span></span><span class="line"><span class="cl">    -&gt; React frontend
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">https://membersystem.obli.dk/api/v1
+</span></span><span class="line"><span class="cl">    -&gt; Java/Javalin backend
+</span></span></code></pre></div><p>This means the frontend and backend can share the same domain.</p>
+<p>That is useful because it avoids many CORS problems in production.</p>
+<p>The important part was making sure that Caddy did not remove <code>/api/v1</code> from the request before sending it to the backend.</p>
+<p>Earlier, I had used <code>handle_path</code>, which strips the path prefix. But after moving API versioning into the codebase, the backend expected <code>/api/v1</code>.</p>
+<p>So the Caddy setup had to forward the full path to the backend.</p>
+<p>This was a useful deployment lesson: reverse proxy configuration and backend routing must match.</p>
+<h2 id="https">HTTPS</h2>
+<p>Caddy also handles HTTPS certificates.</p>
+<p>This means users can access the deployed site through:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">https://membersystem.obli.dk
+</span></span></code></pre></div><p>instead of using an IP address and port.</p>
+<p>HTTPS is important because login credentials and JWT tokens should not be sent over plain HTTP.</p>
+<p>Caddy made this easier because it can automatically handle certificates for the domain.</p>
+<h2 id="reflections">Reflections</h2>
+<p>This integration phase was one of the most important parts of the frontend project.</p>
+<p>It connected many concepts:</p>
+<ul>
+<li>React components</li>
+<li>API calls</li>
+<li>async/await</li>
+<li>error handling</li>
+<li>JWT authentication</li>
+<li>localStorage</li>
+<li>protected routes</li>
+<li>role-based UI</li>
+<li>CORS</li>
+<li>deployment</li>
+<li>Caddy reverse proxy</li>
+<li>HTTPS</li>
+</ul>
+<p>I also learned that many frontend problems are actually full-stack problems.</p>
+<p>For example:</p>
+<ul>
+<li>a login issue can be caused by wrong API base URL</li>
+<li>a CORS issue can be caused by backend configuration</li>
+<li>a broken deployed route can be caused by Caddy rewriting paths</li>
+<li>a missing role check can look like a frontend issue but must be fixed in backend</li>
+<li>a register dropdown can fail because the endpoint requires authentication</li>
+</ul>
+<p>The biggest takeaway from this part is that a frontend application is not isolated.</p>
+<p>It depends heavily on how the backend, API routes, authentication, deployment and server configuration are designed.</p>
+<p>I now have a much better understanding of how a React frontend works together with a backend API in a deployed full-stack application.</p>
+
+      </div>
+
+      
+        <footer class="post-footer">
+          <div class="post-tags-footer">
+            <span class="tags-label">Tags:</span>
+            
+              <a href="/tags/react" class="post-tag">react</a>
+            
+              <a href="/tags/api" class="post-tag">api</a>
+            
+              <a href="/tags/jwt" class="post-tag">jwt</a>
+            
+              <a href="/tags/routing" class="post-tag">routing</a>
+            
+              <a href="/tags/deployment" class="post-tag">deployment</a>
+            
+              <a href="/tags/caddy" class="post-tag">caddy</a>
+            
+          </div>
+        </footer>
+      
+
+
+      <nav class="post-navigation" aria-label="Post navigation">
+        
+          <a
+            href="/posts/frontend-design/"
+            class="nav-link nav-prev"
+            aria-label="Previous post: Frontend design - From mockup to React">
+            <span class="nav-label">Previous</span>
+            <span class="nav-title">Frontend design - From mockup to React</span>
+          </a>
+        
+
+        
+      </nav>
+    </article>
+
+    
+  <aside class="post-toc" id="post-toc" aria-label="Table of contents">
+    <button
+      class="toc-toggle"
+      id="toc-toggle"
+      aria-expanded="true"
+      aria-controls="toc-content"
+      aria-label="Toggle table of contents">
+      <svg
+        class="toc-burger-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <span class="toc-toggle-text">Table of Contents</span>
+      <svg
+        class="toc-chevron-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+    <div class="toc-content" id="toc-content">
+      <nav class="toc-nav" aria-label="Table of contents">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#frontend-integration---api-authentication-roles-and-deployment">Frontend integration - API, authentication, roles and deployment</a>
+      <ul>
+        <li><a href="#connecting-react-to-the-backend-api">Connecting React to the backend API</a></li>
+        <li><a href="#handling-api-responses">Handling API responses</a></li>
+        <li><a href="#async-and-await">Async and await</a></li>
+        <li><a href="#login-with-jwt">Login with JWT</a></li>
+        <li><a href="#localstorage">localStorage</a></li>
+        <li><a href="#the-me-endpoint-and-current-user-state">The /me endpoint and current user state</a></li>
+        <li><a href="#role-based-ui">Role-based UI</a></li>
+        <li><a href="#frontend-role-checks-are-not-security">Frontend role checks are not security</a></li>
+        <li><a href="#protected-routes">Protected routes</a></li>
+        <li><a href="#react-router-and-navigation">React Router and navigation</a></li>
+        <li><a href="#register-flow">Register flow</a></li>
+        <li><a href="#cors-issues-during-development">CORS issues during development</a></li>
+        <li><a href="#deployment-setup">Deployment setup</a></li>
+        <li><a href="#caddy-and-routing">Caddy and routing</a></li>
+        <li><a href="#https">HTTPS</a></li>
+        <li><a href="#reflections">Reflections</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </nav>
+    </div>
+  </aside>
+
+
+  </div>
+
+    </main>
+
+    <footer>
+      <footer class="site-footer">
+  <div class="footer-content">
+    <p class="footer-text">
+      &copy;
+      
+      2026
+      
+      Tobys Portfolio.
+      
+        Built with Hugo and Mana theme
+      
+    </p>
+    
+      <div class="footer-social">
+        <div class="social-links">
+  
+    <a
+      href="https://github.com/Obliwobbi"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-link"
+      aria-label="GitHub">
+      <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill-rule="evenodd"
+          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </a>
+  
+
+  
+    <a
+      href="https://www.linkedin.com/in/tahartzberg"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-link"
+      aria-label="LinkedIn">
+      <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+      </svg>
+    </a>
+  
+
+  
+</div>
+
+      </div>
+    
+  </div>
+</footer>
+
+    </footer>
+
+    <div id="search-modal" class="search-modal" aria-hidden="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop" id="search-modal-backdrop"></div>
+  <div class="search-modal-container">
+    <div class="search-input-wrapper">
+      <svg class="search-input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+      <input
+        type="search"
+        id="search-input"
+        class="search-input"
+        placeholder="Search..."
+        autocomplete="off"
+        aria-label="Search input">
+      <button class="search-input-clear" id="search-input-clear" aria-label="Clear search">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+        </svg>
+      </button>
+      <button class="search-modal-close" id="search-modal-close" aria-label="Close search">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+</div>
+
+    
+
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" type="button">
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+  </svg>
+</button>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.cdc6a3c4f498c0556bc507848c493a55af2da9b14233c21300b240b89857180d.js" defer></script>
+
+  </body>
+</html>

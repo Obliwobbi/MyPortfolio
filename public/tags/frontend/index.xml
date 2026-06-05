@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Frontend on Tobys Portfolio</title>
+    <link>http://localhost:1313/tags/frontend/</link>
+    <description>Recent content in Frontend on Tobys Portfolio</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Jun 2026 12:18:03 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Frontend design - From mockup to React</title>
+      <link>http://localhost:1313/posts/frontend-design/</link>
+      <pubDate>Wed, 03 Jun 2026 12:18:03 +0200</pubDate>
+      <guid>http://localhost:1313/posts/frontend-design/</guid>
+      <description>&lt;h1 id=&#34;frontend-development---from-mockup-to-react-application&#34;&gt;Frontend development - From mockup to React application&lt;/h1&gt;&#xA;&lt;p&gt;This part of the project focused on turning my backend API into an actual frontend application.&lt;/p&gt;&#xA;&lt;p&gt;Before this phase, most of my project was backend-focused. I had built REST endpoints, authentication, user management, company management and database logic, but the system was mainly something I could test through curl requests.&lt;/p&gt;&#xA;&lt;p&gt;The goal of the frontend was to build a React application that made the system feel more like a real product.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
